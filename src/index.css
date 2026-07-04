@@ -1,0 +1,221 @@
+/* ─── Design Tokens — icy premium HVAC palette ─────────────────── */
+:root {
+  /* Off-white / icy backgrounds */
+  --bg:              #F7FBFF;
+  --bg-alt:          #EEF7FF;
+  --surface:         #FFFFFF;
+  --surface-raised:  #E3F2FC;
+
+  --text:            #07111F;
+  --text-muted:      #526477;
+  --text-dim:        #6B7A8C;
+
+  /* Electric cooling blue — primary accent + CTA */
+  --accent:          #00A8E8;
+  --accent-light:    #38BDF8;
+  --accent-dim:      #0077B6;
+  --accent-glow:     rgba(0, 168, 232, 0.12);
+  --accent-glow-sm:  rgba(0, 168, 232, 0.06);
+
+  /* CTA emphasis — same electric-blue family (replaces the old orange "urgency" system) */
+  --urgency:         #00A8E8;
+  --urgency-light:   #38BDF8;
+  --urgency-dim:     #0077B6;
+  --urgency-glow:    rgba(0, 168, 232, 0.16);
+
+  --border:          rgba(7, 17, 31, 0.12);
+  --border-strong:   rgba(7, 17, 31, 0.20);
+  --glass:           rgba(255, 255, 255, 0.72);
+
+  /* Deep slate/near-black — consumed by .section-dark */
+  --brand-navy:      #07111F;
+  --brand-navy-mid:  #0C1826;
+  --brand-navy-deep: #0F1D2E;
+
+  /* Palette reference aliases (same values, exact spec names) */
+  --primary:         #00A8E8;
+  --primary-dark:    #0077B6;
+  --primary-soft:    #DFF6FF;
+  --accent-2:        #38BDF8;
+  --muted:           #526477;
+  --dark:            #07111F;
+  --dark-soft:       #0F1D2E;
+
+  --font-display:    'Space Grotesk', system-ui, sans-serif;
+  --font-body:       'DM Sans', system-ui, sans-serif;
+  --font-mono:       'DM Mono', 'Courier New', monospace;
+
+  --max-w:  1240px;
+  --gutter: 48px;
+}
+
+/* ─── Dark section — deep slate/near-black with cyan glow ────────── */
+.section-dark {
+  --bg:              #07111F;
+  --bg-alt:          #0C1826;
+  --surface:         #0F1D2E;
+  --surface-raised:  #16283C;
+
+  --text:            #EEF7FF;
+  --text-muted:      #9FB4C7;
+  --text-dim:        #6E8598;
+
+  /* Bright cyan glow on dark */
+  --accent:          #38BDF8;
+  --accent-light:    #7DD3FC;
+  --accent-dim:      #0EA5E9;
+  --accent-glow:     rgba(56, 189, 248, 0.18);
+  --accent-glow-sm:  rgba(56, 189, 248, 0.09);
+
+  --urgency:         #38BDF8;
+  --urgency-light:   #7DD3FC;
+  --urgency-dim:     #0EA5E9;
+  --urgency-glow:    rgba(56, 189, 248, 0.22);
+
+  --border:          rgba(125, 211, 252, 0.12);
+  --border-strong:   rgba(125, 211, 252, 0.22);
+  --glass:           rgba(15, 29, 46, 0.6);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+/* ─── Grain overlay ─────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 160px 160px;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ─── Layout ────────────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ─── Animations ────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes lineExpand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ─── Scroll-reveal ─────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 80ms;  }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 340ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    transition-delay:          0ms    !important;
+  }
+  .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
+}
+
+/* ─── Premium link/button interactions ─────────────────────────── */
+a { cursor: pointer; }
+
+/* ─── Section gradient bridges — smooths bg-color transitions ───── */
+.section-bridge-top {
+  position: relative;
+}
+.section-bridge-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Focus states ──────────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+[data-interactive]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root { --gutter: 24px; }
+}
