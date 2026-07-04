@@ -1,47 +1,47 @@
-/* ─── Design Tokens — icy premium HVAC palette ─────────────────── */
+/* ─── Design Tokens — warm brass/copper + charcoal trade-professional palette ─── */
 :root {
-  /* Off-white / icy backgrounds */
-  --bg:              #F7FBFF;
-  --bg-alt:          #EEF7FF;
+  /* Warm stone / paper backgrounds */
+  --bg:              #F8F5F0;
+  --bg-alt:          #F1EAE0;
   --surface:         #FFFFFF;
-  --surface-raised:  #E3F2FC;
+  --surface-raised:  #ECE2D2;
 
-  --text:            #07111F;
-  --text-muted:      #526477;
-  --text-dim:        #6B7A8C;
+  --text:            #211D18;
+  --text-muted:      #5C5348;
+  --text-dim:        #7A6F60;
 
-  /* Electric cooling blue — primary accent + CTA */
-  --accent:          #00A8E8;
-  --accent-light:    #38BDF8;
-  --accent-dim:      #0077B6;
-  --accent-glow:     rgba(0, 168, 232, 0.12);
-  --accent-glow-sm:  rgba(0, 168, 232, 0.06);
+  /* Brass / copper — primary accent + CTA */
+  --accent:          #A8672E;
+  --accent-light:    #C88A4C;
+  --accent-dim:      #7E4E22;
+  --accent-glow:     rgba(168, 103, 46, 0.14);
+  --accent-glow-sm:  rgba(168, 103, 46, 0.07);
 
-  /* CTA emphasis — same electric-blue family (replaces the old orange "urgency" system) */
-  --urgency:         #00A8E8;
-  --urgency-light:   #38BDF8;
-  --urgency-dim:     #0077B6;
-  --urgency-glow:    rgba(0, 168, 232, 0.16);
+  /* CTA emphasis — same brass family */
+  --urgency:         #A8672E;
+  --urgency-light:   #C88A4C;
+  --urgency-dim:     #7E4E22;
+  --urgency-glow:    rgba(168, 103, 46, 0.18);
 
-  --border:          rgba(7, 17, 31, 0.12);
-  --border-strong:   rgba(7, 17, 31, 0.20);
+  --border:          rgba(33, 29, 24, 0.12);
+  --border-strong:   rgba(33, 29, 24, 0.22);
   --glass:           rgba(255, 255, 255, 0.72);
 
-  /* Deep slate/near-black — consumed by .section-dark */
-  --brand-navy:      #07111F;
-  --brand-navy-mid:  #0C1826;
-  --brand-navy-deep: #0F1D2E;
+  /* Deep charcoal/graphite — consumed by .section-dark */
+  --brand-charcoal:      #1B1815;
+  --brand-charcoal-mid:  #221E1A;
+  --brand-charcoal-deep: #171310;
 
   /* Palette reference aliases (same values, exact spec names) */
-  --primary:         #00A8E8;
-  --primary-dark:    #0077B6;
-  --primary-soft:    #DFF6FF;
-  --accent-2:        #38BDF8;
-  --muted:           #526477;
-  --dark:            #07111F;
-  --dark-soft:       #0F1D2E;
+  --primary:         #A8672E;
+  --primary-dark:    #7E4E22;
+  --primary-soft:    #F1E1CC;
+  --accent-2:        #C88A4C;
+  --muted:           #5C5348;
+  --dark:            #211D18;
+  --dark-soft:       #221E1A;
 
-  --font-display:    'Space Grotesk', system-ui, sans-serif;
+  --font-display:    'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body:       'DM Sans', system-ui, sans-serif;
   --font-mono:       'DM Mono', 'Courier New', monospace;
 
@@ -49,32 +49,32 @@
   --gutter: 48px;
 }
 
-/* ─── Dark section — deep slate/near-black with cyan glow ────────── */
+/* ─── Dark section — charcoal/graphite with brass glow ────────────── */
 .section-dark {
-  --bg:              #07111F;
-  --bg-alt:          #0C1826;
-  --surface:         #0F1D2E;
-  --surface-raised:  #16283C;
+  --bg:              #1B1815;
+  --bg-alt:          #221E1A;
+  --surface:         #221E1A;
+  --surface-raised:  #2A251F;
 
-  --text:            #EEF7FF;
-  --text-muted:      #9FB4C7;
-  --text-dim:        #6E8598;
+  --text:            #F3EDE2;
+  --text-muted:      #B9AC9A;
+  --text-dim:        #8C8171;
 
-  /* Bright cyan glow on dark */
-  --accent:          #38BDF8;
-  --accent-light:    #7DD3FC;
-  --accent-dim:      #0EA5E9;
-  --accent-glow:     rgba(56, 189, 248, 0.18);
-  --accent-glow-sm:  rgba(56, 189, 248, 0.09);
+  /* Warm brass glow on dark */
+  --accent:          #D8985C;
+  --accent-light:    #E8B67F;
+  --accent-dim:      #C4813F;
+  --accent-glow:     rgba(216, 152, 92, 0.18);
+  --accent-glow-sm:  rgba(216, 152, 92, 0.09);
 
-  --urgency:         #38BDF8;
-  --urgency-light:   #7DD3FC;
-  --urgency-dim:     #0EA5E9;
-  --urgency-glow:    rgba(56, 189, 248, 0.22);
+  --urgency:         #D8985C;
+  --urgency-light:   #E8B67F;
+  --urgency-dim:     #C4813F;
+  --urgency-glow:    rgba(216, 152, 92, 0.22);
 
-  --border:          rgba(125, 211, 252, 0.12);
-  --border-strong:   rgba(125, 211, 252, 0.22);
-  --glass:           rgba(15, 29, 46, 0.6);
+  --border:          rgba(232, 182, 127, 0.12);
+  --border-strong:   rgba(232, 182, 127, 0.22);
+  --glass:           rgba(34, 30, 26, 0.6);
 }
 
 /* ─── Reset ─────────────────────────────────────────────────────── */

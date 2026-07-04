@@ -1,32 +1,21 @@
 import { motion } from 'framer-motion'
-import Reveal, { staggerContainer, staggerItem } from '../components/Reveal'
-import iceTexture from '../assets/textures/cold-ice.webp'
+import Reveal from '../components/Reveal'
+import { staggerContainer, staggerItem } from '../components/motionVariants'
 
 const steps = [
-  { n: '01', title: 'Call or request service',    body: 'Call now or send a service request, and we’ll confirm a same-day or next-day appointment.' },
-  { n: '02', title: 'Get a clear diagnosis',       body: 'A Callahan tech inspects your system on-site and walks you through what’s wrong and what it costs before starting.' },
-  { n: '03', title: 'Get your home cooling again', body: 'Most repairs are completed the same visit, so your home is back to comfortable fast.' },
+  { n: '01', title: 'Call or request service',       body: 'Call now, any hour, and we’ll confirm an appointment as soon as one’s available.' },
+  { n: '02', title: 'Get a clear diagnosis',          body: 'A Mitchell Brothers tech inspects your system on-site and walks you through what’s wrong and what it costs before starting.' },
+  { n: '03', title: 'Get your comfort back',          body: 'Most repairs are completed the same visit, so your home is back to comfortable fast.' },
 ]
 
 export default function Process() {
   return (
     <section id="process" style={{ position: 'relative', background: 'var(--bg)', overflow: 'hidden' }}>
-      {/* Subtle icy texture — cooling motif behind the "back to cool" copy, kept low-opacity for readability */}
-      <img
-        src={iceTexture}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-        style={{
-          position: 'absolute', inset: 0, width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.3, pointerEvents: 'none',
-        }}
-      />
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(180deg, rgba(223,246,255,0.65) 0%, rgba(223,246,255,0.76) 50%, rgba(223,246,255,0.65) 100%)',
-        pointerEvents: 'none',
+      {/* Fine brass hairline grid — architectural/trade motif */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none',
+        backgroundImage: 'linear-gradient(rgba(168,103,46,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(168,103,46,0.7) 1px, transparent 1px)',
+        backgroundSize: '56px 56px',
       }} />
 
       <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto', padding: '108px var(--gutter) 116px', position: 'relative' }}>
@@ -39,11 +28,11 @@ export default function Process() {
             }}>How It Works</span>
           </div>
           <h2 style={{
-            fontFamily: 'var(--font-display)', fontWeight: 700,
-            fontSize: 'clamp(34px, 4.4vw, 56px)', lineHeight: 1.08,
-            letterSpacing: '-0.02em', color: 'var(--text)', margin: 0, marginBottom: '64px',
+            fontFamily: 'var(--font-display)', fontWeight: 600,
+            fontSize: 'clamp(30px, 4vw, 50px)', lineHeight: 1.14,
+            letterSpacing: '-0.005em', color: 'var(--text)', margin: 0, marginBottom: '64px',
           }}>
-            Three steps back to cool
+            Three steps back to comfortable
           </h2>
         </Reveal>
 
@@ -57,10 +46,8 @@ export default function Process() {
         >
           {steps.map(s => (
             <motion.div key={s.n} variants={staggerItem} style={{
-              background: 'var(--glass)',
-              backdropFilter: 'blur(6px) saturate(1.3)',
-              WebkitBackdropFilter: 'blur(6px) saturate(1.3)',
-              boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.6), 0 8px 24px rgba(0,168,232,0.08)',
+              background: 'var(--surface)',
+              boxShadow: '0 8px 24px rgba(168,103,46,0.06)',
               padding: '36px 32px',
             }}>
               <div style={{

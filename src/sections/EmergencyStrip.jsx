@@ -1,4 +1,5 @@
-import Reveal, { staggerContainer, staggerItem } from '../components/Reveal'
+import Reveal from '../components/Reveal'
+import { staggerContainer, staggerItem } from '../components/motionVariants'
 import { motion } from 'framer-motion'
 
 const symptoms = [
@@ -19,7 +20,7 @@ export default function EmergencyStrip() {
             fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.16em',
             textTransform: 'uppercase', color: 'var(--urgency-dim)', marginBottom: '20px',
           }}>
-            Sound familiar? We fix it same-day.
+            Sound familiar? We're open 24 hours to fix it.
           </div>
         </Reveal>
         <motion.div

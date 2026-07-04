@@ -1,31 +1,24 @@
-# Davillier Law Group — Website Demo
+# Mitchell Brothers Heating And Cooling — Website Demo
 
-Premium law firm website demo built for Davillier Law Group (DLG), a full-service firm headquartered in New Orleans with offices in Phoenix and Sandpoint.
+A demo website concept for Mitchell Brothers Heating And Cooling, an HVAC contractor based in Tempe, AZ. Built to show a modern, conversion-focused site for a 24-hour residential HVAC business.
 
----
-
-## Live Demo
-
-**https://newdavillierdemo.netlify.app/**
-
-## GitHub Repository
-
-**https://github.com/bacchuslandon/davillier-website-demo**
+This is a **pitch/demo project**, not the business's live site. Content is based on publicly available business information and should be verified with the business before any real launch.
 
 ---
 
 ## Tech Stack
 
-| Layer       | Technology              |
-|-------------|-------------------------|
-| Framework   | React 19                |
-| Bundler     | Vite 8                  |
-| Routing     | React Router v7         |
-| Styling     | CSS custom properties (inline + global) |
-| Deployment  | Netlify                 |
-| Lint        | ESLint + react-hooks    |
+| Layer       | Technology                                 |
+|-------------|---------------------------------------------|
+| Framework   | React 19                                    |
+| Bundler     | Vite 8                                      |
+| Routing     | React Router v7                             |
+| Animation   | Framer Motion 11                            |
+| Styling     | CSS custom properties (inline + global), no Tailwind |
+| Deployment  | Netlify (SPA redirect in `public/_redirects`) |
+| Lint        | ESLint + react-hooks + react-refresh        |
 
-> **Note:** This demo is built in React/Vite — not WordPress. See `TECHNICAL_HANDOFF.md` for the CMS decision discussion.
+There is no CMS or backend. Copy and data live directly in `src/data/` and component files.
 
 ---
 
@@ -49,19 +42,32 @@ npm run lint
 
 ## Routes
 
-| Path                          | Page                          |
-|-------------------------------|-------------------------------|
-| `/`                           | Home                          |
-| `/about`                      | About the Firm                |
-| `/attorneys`                  | Attorneys                     |
-| `/staff`                      | Support Staff                 |
-| `/practice-areas`             | Practice Areas (all)          |
-| `/practice-areas/:slug`       | Practice Area Detail          |
-| `/contact`                    | Contact                       |
-| `*`                           | 404 Not Found                 |
+| Path             | Page                                  |
+|------------------|----------------------------------------|
+| `/`              | Home                                   |
+| `/services`      | Services (AC repair, maintenance, heating, installation, emergency) |
+| `/why-us`        | Why Mitchell Brothers                  |
+| `/reviews`       | Review highlights                      |
+| `/service-area`  | Service area (Tempe + East Valley)     |
+| `/apply`         | Careers / job application (demo form)  |
+| `/contact`       | Contact                                |
+
+---
+
+## Business Info Used In This Demo
+
+- **Name:** Mitchell Brothers Heating And Cooling
+- **Category:** HVAC contractor
+- **Phone:** (623) 462-7648
+- **Address:** 805 W Baseline Rd, Tempe, AZ 85283
+- **Hours:** Open 24 hours, every day
+- **Service focus:** Tempe and the East Valley
+- **Services:** AC Repair, AC Maintenance, Heating Repair, System Installation, Emergency Service
+
+No business email address is published anywhere in this demo (none was available at time of writing). No license/insurance number is asserted — the site shows this as "pending verification." See `TECHNICAL_HANDOFF.md` for what else still needs confirming before a real launch.
 
 ---
 
 ## Project Contacts
 
-- **Landon Bacchus** — lbacchus@davillierlawgroup.com
+- **Landon Bacchus** — bacchuslandon@icloud.com

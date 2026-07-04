@@ -1,23 +1,21 @@
 import { useEffect } from 'react'
 import PageHeader from '../components/PageHeader'
-import EmergencyStrip from '../sections/EmergencyStrip'
 import Services from '../sections/Services'
 import MaintenanceCTA from '../sections/MaintenanceCTA'
 import FinalCTA from '../sections/FinalCTA'
 
 export default function ServicesPage() {
   useEffect(() => {
-    document.title = 'Services: AC Repair, Installation, and Maintenance | Callahan Air Conditioning'
+    document.title = 'Services: AC Repair, Maintenance, Heating & Installation | Mitchell Brothers Heating And Cooling'
   }, [])
 
   return (
     <>
       <PageHeader
         eyebrow="Services"
-        title="AC repair, installation, and maintenance"
-        subtitle="Same-day service for Phoenix homes, from emergency repairs to seasonal tune-ups."
+        title="AC repair, maintenance, and system installation"
+        subtitle="24-hour service for Tempe and East Valley homes, from emergency repairs to system installation."
       />
-      <EmergencyStrip />
       <Services />
       <MaintenanceCTA />
       <FinalCTA />

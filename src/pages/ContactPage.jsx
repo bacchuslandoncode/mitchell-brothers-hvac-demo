@@ -1,20 +1,20 @@
 import { useEffect } from 'react'
 import PageHeader from '../components/PageHeader'
 import Reveal from '../components/Reveal'
-import { CallNowButton, CALLAHAN_PHONE, CALLAHAN_PHONE_TEL, CALLAHAN_EMAIL } from '../components/Nav'
-import { hoursRows } from '../components/Footer'
+import { CallNowButton, MITCHELL_PHONE, MITCHELL_PHONE_TEL, MITCHELL_ADDRESS } from '../components/Nav'
+import { hoursRows } from '../data/hours'
 
 export default function ContactPage() {
   useEffect(() => {
-    document.title = 'Contact | Callahan Air Conditioning'
+    document.title = 'Contact | Mitchell Brothers Heating And Cooling'
   }, [])
 
   return (
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Get in touch with Callahan"
-        subtitle="Call for same-day service, or reach out by email. Callahan takes calls 24/7."
+        title="Get in touch with Mitchell Brothers"
+        subtitle="Call any time for service — Mitchell Brothers takes calls 24 hours a day."
       />
 
       <section style={{ position: 'relative', background: 'var(--bg)' }}>
@@ -28,27 +28,18 @@ export default function ContactPage() {
                   fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em',
                   textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '18px',
                 }}>Phone</div>
-                <a href={CALLAHAN_PHONE_TEL} style={{
+                <a href={MITCHELL_PHONE_TEL} style={{
                   fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'clamp(24px, 3vw, 32px)',
                   color: 'var(--text)', display: 'block', marginBottom: '32px', textDecoration: 'none',
-                }}>{CALLAHAN_PHONE}</a>
+                }}>{MITCHELL_PHONE}</a>
 
                 <div style={{
                   fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em',
                   textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '18px',
-                }}>Email</div>
-                <a href={`mailto:${CALLAHAN_EMAIL}`} style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '16px', color: 'var(--text-muted)',
-                  display: 'block', marginBottom: '32px', textDecoration: 'none', wordBreak: 'break-word',
-                }}>{CALLAHAN_EMAIL}</a>
-
-                <div style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em',
-                  textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '18px',
-                }}>Location</div>
+                }}>Address</div>
                 <p style={{
                   fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--text-muted)', margin: 0,
-                }}>Arizona, USA</p>
+                }}>{MITCHELL_ADDRESS}</p>
               </div>
 
               {/* Hours + CTA */}
@@ -70,7 +61,7 @@ export default function ContactPage() {
                 <p style={{
                   fontFamily: 'var(--font-body)', fontSize: '14.5px', color: 'var(--text-muted)',
                   marginBottom: '28px',
-                }}>Callahan takes calls 24/7, even outside office hours.</p>
+                }}>Mitchell Brothers takes calls 24 hours a day, every day.</p>
                 <CallNowButton />
               </div>
             </div>

@@ -28,13 +28,13 @@ export default function Apply() {
               letterSpacing: '-0.02em', color: 'var(--text)', margin: 0, marginBottom: '20px',
               maxWidth: '16ch',
             }}>
-              Join the Callahan team
+              Join the Mitchell Brothers team
             </h2>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: 1.75,
               color: 'var(--text-muted)', maxWidth: '38ch',
             }}>
-              If you're interested in working with Callahan Air Conditioning, start by sending your contact info and resume.
+              If you're interested in working with Mitchell Brothers Heating And Cooling, start by sending your contact info and resume.
             </p>
           </Reveal>
 

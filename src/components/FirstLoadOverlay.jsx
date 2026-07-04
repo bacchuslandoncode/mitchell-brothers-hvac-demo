@@ -4,9 +4,9 @@ export default function FirstLoadOverlay() {
   // Lazy initializer runs once before first paint — safe for sessionStorage/matchMedia
   const [phase, setPhase] = useState(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const played = sessionStorage.getItem('callahan-intro-played')
+    const played = sessionStorage.getItem('mitchell-intro-played')
     if (played || prefersReduced) return 'done'
-    sessionStorage.setItem('callahan-intro-played', '1')
+    sessionStorage.setItem('mitchell-intro-played', '1')
     return 'visible'
   })
 
@@ -33,7 +33,7 @@ export default function FirstLoadOverlay() {
         position: 'fixed',
         inset: 0,
         zIndex: 10000,
-        background: '#07111F',
+        background: '#1B1815',
         pointerEvents: 'none',
         opacity: phase === 'fading' ? 0 : 1,
         transition: phase === 'fading' ? 'opacity 0.78s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',

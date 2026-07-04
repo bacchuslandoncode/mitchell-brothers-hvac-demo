@@ -5,14 +5,14 @@ import FinalCTA from '../sections/FinalCTA'
 
 export default function ServiceAreaPage() {
   useEffect(() => {
-    document.title = 'Service Area | Callahan Air Conditioning'
+    document.title = 'Service Area | Mitchell Brothers Heating And Cooling'
   }, [])
 
   return (
     <>
       <PageHeader
         eyebrow="Service Area"
-        title="Where Callahan works"
+        title="Where Mitchell Brothers works"
       />
       <ServiceArea />
       <FinalCTA />

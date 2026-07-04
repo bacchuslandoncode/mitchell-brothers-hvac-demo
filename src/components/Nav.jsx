@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import logoImg from '../assets/callahan-logo/callahan-logo.webp'
 
-export const CALLAHAN_PHONE = '(602) 897-0971'
-export const CALLAHAN_PHONE_TEL = 'tel:+16028970971'
-export const CALLAHAN_EMAIL = 'Office@Callahanair.com'
+export const MITCHELL_PHONE = '(623) 462-7648'
+export const MITCHELL_PHONE_TEL = 'tel:+16234627648'
+export const MITCHELL_ADDRESS = '805 W Baseline Rd, Tempe, AZ 85283'
 
 const links = [
   { label: 'Services',      to: '/services'      },
-  { label: 'Why Callahan',  to: '/why-callahan'   },
+  { label: 'Why Us',        to: '/why-us'         },
   { label: 'Reviews',       to: '/reviews'        },
   { label: 'Service Area',  to: '/service-area'   },
   { label: 'Apply',         to: '/apply'          },
@@ -36,19 +35,19 @@ export default function Nav() {
       willChange: 'transform',
       transition: 'background 0.4s ease, border-color 0.4s ease',
       background: scrolled
-        ? 'rgba(7,17,31,0.97)'
-        : 'linear-gradient(to bottom, rgba(7,17,31,0.72) 0%, transparent 100%)',
+        ? 'rgba(27,24,21,0.97)'
+        : 'linear-gradient(to bottom, rgba(27,24,21,0.72) 0%, transparent 100%)',
       backdropFilter: scrolled ? 'blur(10px) saturate(1.2)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(10px) saturate(1.2)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(56,189,248,0.16)' : '1px solid transparent',
+      borderBottom: scrolled ? '1px solid rgba(232,182,127,0.16)' : '1px solid transparent',
       /* Nav always sits over a dark hero — force dark-section tokens */
-      '--text':         '#EEF7FF',
-      '--text-muted':   '#9FB4C7',
-      '--text-dim':     '#6E8598',
-      '--accent':       '#38BDF8',
-      '--accent-light': '#7DD3FC',
-      '--accent-dim':   '#0EA5E9',
-      '--bg':           '#07111F',
+      '--text':         '#F3EDE2',
+      '--text-muted':   '#B9AC9A',
+      '--text-dim':     '#8C8171',
+      '--accent':       '#D8985C',
+      '--accent-light': '#E8B67F',
+      '--accent-dim':   '#C4813F',
+      '--bg':           '#1B1815',
     }}>
       <div style={{
         maxWidth: 'var(--max-w)',
@@ -61,20 +60,9 @@ export default function Nav() {
         columnGap: '32px',
       }}>
 
-        {/* Wordmark + logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '9px', flexShrink: 0, textDecoration: 'none', justifySelf: 'start' }}>
-          <span className="nav-logo-chip" style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            width: '40px', height: '40px', borderRadius: '7px',
-            background: '#fff', padding: '4px', flexShrink: 0,
-            boxShadow: '0 2px 10px rgba(0,0,0,0.28)',
-          }}>
-            <img
-              src={logoImg}
-              alt="Callahan Air Conditioning logo"
-              style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
-            />
-          </span>
+        {/* Wordmark */}
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '11px', flexShrink: 0, textDecoration: 'none', justifySelf: 'start' }}>
+          <BrandMark size={40} />
           <span style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span style={{
               fontFamily: 'var(--font-display)',
@@ -84,15 +72,15 @@ export default function Nav() {
               color: 'var(--text)',
               lineHeight: 1,
               whiteSpace: 'nowrap',
-            }}>Callahan <span style={{ color: 'var(--accent)' }}>Air Conditioning</span></span>
+            }}>Mitchell Brothers <span style={{ color: 'var(--accent)' }}>Heating &amp; Cooling</span></span>
             <span style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '9px',
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
-              color: 'rgba(175,195,210,0.85)',
+              color: 'rgba(185,172,154,0.85)',
               lineHeight: 1,
-            }}>Phoenix, AZ</span>
+            }}>Tempe, AZ</span>
           </span>
         </Link>
 
@@ -158,7 +146,7 @@ export default function Nav() {
         maxHeight: menuOpen ? '480px' : '0',
         overflow: 'hidden',
         transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        background: 'rgba(7,17,31,0.98)',
+        background: 'rgba(27,24,21,0.98)',
         backdropFilter: 'blur(16px)',
         borderTop: menuOpen ? '1px solid var(--border)' : '1px solid transparent',
       }}>
@@ -243,11 +231,28 @@ function NavAnchor({ label, to }) {
   )
 }
 
+/* Text-based wordmark — square monogram chip, no logo asset. */
+export function BrandMark({ size = 40 }) {
+  return (
+    <span className="nav-logo-chip" aria-hidden="true" style={{
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      width: `${size}px`, height: `${size}px`, borderRadius: '7px', flexShrink: 0,
+      background: 'linear-gradient(135deg, #7E4E22, #A8672E)',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.14)',
+    }}>
+      <span style={{
+        fontFamily: 'var(--font-display)', fontWeight: 600,
+        fontSize: `${Math.round(size * 0.42)}px`, color: '#F3EDE2', letterSpacing: '-0.02em',
+      }}>MB</span>
+    </span>
+  )
+}
+
 export function CallNowButton({ compact = false, full = false, onClick }) {
   const [hov, setHov] = useState(false)
   return (
     <a
-      href={CALLAHAN_PHONE_TEL}
+      href={MITCHELL_PHONE_TEL}
       onClick={onClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -262,20 +267,20 @@ export function CallNowButton({ compact = false, full = false, onClick }) {
         gap: '8px',
         whiteSpace: 'nowrap',
         textDecoration: 'none',
-        color: 'var(--dark)',
+        color: '#211D18',
         background: hov
-          ? 'linear-gradient(135deg, var(--accent-2), #7DD3FC)'
+          ? 'linear-gradient(135deg, var(--accent-2), #E8B67F)'
           : 'linear-gradient(135deg, var(--primary), var(--accent-2))',
         border: '1px solid transparent',
         padding: compact ? '10px 16px' : '15px 24px',
         borderRadius: '2px',
         transition: 'all 0.2s ease',
         width: full ? '100%' : 'auto',
-        boxShadow: hov ? '0 6px 22px rgba(0,168,232,0.32)' : '0 2px 10px rgba(0,168,232,0.14)',
+        boxShadow: hov ? '0 6px 22px rgba(168,103,46,0.32)' : '0 2px 10px rgba(168,103,46,0.14)',
       }}
     >
       <PhoneIcon />
-      {compact ? 'Call Now' : `Call ${CALLAHAN_PHONE}`}
+      {compact ? 'Call Now' : `Call ${MITCHELL_PHONE}`}
     </a>
   )
 }

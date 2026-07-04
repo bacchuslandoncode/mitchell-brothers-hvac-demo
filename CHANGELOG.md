@@ -1,4 +1,4 @@
-# Changelog — Davillier Law Group Website Demo
+# Changelog — Mitchell Brothers Heating And Cooling Website Demo
 
 All notable changes to this project are documented here.
 
@@ -6,93 +6,34 @@ All notable changes to this project are documented here.
 
 ## [Unreleased] — Pre-Launch
 
-Changes pending firm approval and go-live decision.
+Changes pending review and go-live decision. Not yet deployed as a real business site.
 
 ---
 
-## 2026-06-30
+## 2026-07-04
 
-### Maintenance
-- Resolved all 12 `react-hooks/exhaustive-deps` ESLint warnings across 7 files
-  - Added correct dependency arrays (`[ref, delay]`, `[ref, animation]`, `[i]`) to all one-shot intersection observer hooks
-  - No behavior changes; all hooks remain fire-once scroll-reveal patterns
-  - Build and lint now pass with 0 errors and 0 warnings
-- Initialized git repository; set branch to `main`
-- Set repo-local git identity (Landon Bacchus / lbacchus@davillierlawgroup.com)
-- Added `.env`, `.env.local`, `.env.production`, `.vite`, `.netlify` to `.gitignore`
-- Created professional handoff documentation: `README.md`, `TECHNICAL_HANDOFF.md`, `QA_REPORT.md`, `LAUNCH_CHECKLIST.md`, `CHANGELOG.md`
-- Pushed initial commit to GitHub: https://github.com/bacchuslandon/davillier-website-demo
+### Project Origin
 
----
+This repository started as a copy of an existing single-page HVAC contractor demo template (same tech stack: React, Vite, React Router, Framer Motion, CSS custom properties). It has since been fully rebranded and restructured for Mitchell Brothers Heating And Cooling. No content, contact info, reviews, or project history from the original template client carried over — see "Rebrand" below for what changed.
 
-## 2026-06 (Design & Build Phase)
+### Rebrand — Mitchell Brothers Heating And Cooling
 
-### Homepage Redesign
-- Rebuilt homepage from scratch with a premium editorial layout targeting a high-end law firm aesthetic
-- Deep navy (`#0C1438`) primary background with bronze/gold accent system (`--accent`, `--accent-light`, `--accent-dim`)
-- Section-by-section scroll reveal animations using `IntersectionObserver`
-- Consistent typographic system: display serif (Cormorant Garamond), mono (JetBrains Mono), body (Inter)
+- Replaced the entire color system: brass/copper accent (`#A8672E` family) over charcoal/graphite dark sections (`#1B1815` family), replacing the template's electric-blue/navy palette
+- Swapped the display typeface to Fraunces (serif) for a warmer, trade-heritage feel; kept DM Sans (body) and DM Mono (labels)
+- Rebuilt the homepage hero as a two-column layout with a framed, bordered photo card and a "24-Hour Emergency Service" badge, replacing the template's full-bleed photo hero
+- Replaced all business info with Mitchell Brothers' confirmed details: name, phone `(623) 462-7648`, address `805 W Baseline Rd, Tempe, AZ 85283`, "open 24 hours every day" hours, and a 5-item service list (AC Repair, AC Maintenance, Heating Repair, System Installation, Emergency Service)
+- Replaced the template's real customer testimonials (verbatim quotes scraped from the original client's site) with a theme-based "Review Highlights" section (`ReviewHighlights.jsx` / `reviewHighlights.js`) summarizing public review themes plus a 5.0/3-review rating badge — no invented quotes
+- Replaced the template's named real client properties ("Projects" section) with a generic, clearly-labeled "Service Scenarios" section (`ServiceScenarios.jsx`) — illustrative scenario cards, not real past jobs, with no property names
+- Rewrote the service-area section around Tempe as the confirmed home base, with nearby East Valley cities presented explicitly as general-proximity copy, not a confirmed service list
+- Replaced the template's real logo image with a text-based "MB" wordmark (`BrandMark` in `Nav.jsx`) — no logo asset exists for this business
+- Removed the business email address entirely (none was available) rather than inventing one
+- Renamed routes/components away from the original template's naming: the "Why Us" route and its section/page files, the desert-heat section, the projects section (now Service Scenarios), and the reviews section/data (now Review Highlights) — see `TECHNICAL_HANDOFF.md` for the current file map
+- Updated `index.html` metadata (title, description, Open Graph/Twitter tags) and `package.json` name
 
-### Hero Section
-- Full-screen hero with large editorial headline and italic display type
-- Replaced stock imagery approach with firm-specific photography
-- Added animated entrance for headline, subline, and CTA buttons
-- Refined headline copy to lead with firm identity and scale
+### Repo Cleanup (pre-GitHub pass)
 
-### Color & Background Updates
-- Established CSS custom property system in `index.css` for all colors, spacing, and typography
-- Created section-to-section color bridges using gradient overlays (navy → cream → navy transitions)
-- Warm paper tone (`#F4EDE1`) used for office/CTA sections; deep navy for team/about sections
-
-### Practice Areas Section
-- Redesigned as an editorial two-tier layout: featured 3-column cards + numbered archive index
-- Featured cards show index number, sub-label, title, and body copy with hover lift effect
-- Archive index rows show practice number, title, sub-label, and arrow indicator
-- Practice area detail pages added for 10 areas via `/practice-areas/:slug` routing
-
-### Attorneys Section & Dropdown
-- Built staggered photo card grid for partners (6-col) and associates/counsel (6-col)
-- Attorneys navigation dropdown added to `Nav.jsx` with full roster, titles, and individual links
-- Dropdown accessible on hover (desktop) and tap (mobile)
-- Cards use `IntersectionObserver` stagger timing (`i * 55ms`) for cascade reveal
-
-### Support Staff Page
-- Dedicated `/staff` route and page (`StaffPage.jsx`)
-- 4-column photo grid with same stagger animation system as attorneys
-- Text-only card variant for staff without photos
-
-### CTA / Contact Section
-- Redesigned contact section with two-column layout: copy + office panel
-- Office panel shows all three locations with city, state, and phone number
-- "Request a Consultation" button routes to `/contact` page
-- `CTAAlt.jsx` alternate layout preserved in `src/alt/` for reference
-
-### Offices Section
-- Asymmetric photo grid: New Orleans featured (spans 2 rows left), Phoenix and Sandpoint stacked right
-- Cards reveal with staggered `IntersectionObserver` timing
-- Hover: image scale, silver top bar expand, address opacity increase
-
-### Footer Cleanup
-- Simplified footer: firm name, state bar license line, and attorney advertising disclaimer
-- Removed extraneous links and columns; clean mono typography
-
-### Solai Feedback Revisions
-- Adjusted attorney card photo positioning for Solai Wyman (`objectPosition: 'center top'`)
-- Reviewed staff grid ordering and photo crop consistency
-
-### Readability Improvements
-- Increased body copy font size across interior pages to 18–19px
-- Tightened line heights on hero headings (0.93–0.95)
-- Improved contrast on muted text (`--text-muted`) in dark sections
-- Added letter-spacing to mono labels for improved legibility at small sizes
-
-### Process Section
-- Added "How We Work" three-step process section between About and Team
-- Features Daniel Davillier business photo on right column
-- Steps use numbered vertical tick layout
-
-### About Section
-- Redesigned with oversized pull quote, editorial left-border treatment
-- Two-column layout: body copy left, firm identity checklist right
-- Three-pillar grid at bottom (Local Knowledge, National Experience, Client-Centered)
-- `teaser` prop allows compact version reuse on homepage vs full version on `/about`
+- Searched the full repo for residual references to the original template's business name, phone number, old route/component names, and old named client properties
+- Renamed 4 stock photo asset files that were still internally named after the original template's real client properties (e.g. a named apartment complex) to neutral, generic filenames; updated their imports
+- Rewrote `README.md`, `TECHNICAL_HANDOFF.md`, `LAUNCH_CHECKLIST.md`, and `QA_REPORT.md`, which had been left over from an unrelated earlier project template and did not reflect this codebase at all
+- Fixed two pre-existing `react-refresh/only-export-components` ESLint errors (unrelated to branding) by moving shared values out of component files: Framer Motion stagger variants into `src/components/motionVariants.js`, and footer hours data into `src/data/hours.js`
+- Confirmed `npm run build` and `npm run lint` both pass clean (0 errors, 0 warnings)

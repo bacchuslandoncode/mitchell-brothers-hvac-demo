@@ -1,21 +1,20 @@
 import { motion } from 'framer-motion'
-import Reveal, { staggerContainer, staggerItem } from '../components/Reveal'
+import Reveal from '../components/Reveal'
+import { staggerContainer, staggerItem } from '../components/motionVariants'
 import { services } from '../data/services'
 import repairPhoto from '../assets/photos/hero-hvac-technician.webp'
-import installPhoto from '../assets/photos/ac-installation.webp'
-import tuneUpPhoto from '../assets/photos/ac-tuneups.webp'
+import installPhoto from '../assets/photos/modern-room-wall-ac.webp'
+import maintenancePhoto from '../assets/photos/ac-remote.webp'
 import emergencyPhoto from '../assets/photos/emergency-ac-service.webp'
-import heatingPhoto from '../assets/photos/heating-repair.webp'
-import maintenancePhoto from '../assets/photos/services-tools-gauges.webp'
+import heatingPhoto from '../assets/photos/heater-unit.webp'
 
-/* Correlated photo per card — every card now has a dedicated, distinct photo. */
+/* Correlated photo + alt text per card — every card has a dedicated, distinct photo. */
 const photoMap = {
-  'ac-repair':         repairPhoto,
-  'ac-installation':   installPhoto,
-  'ac-tune-ups':       tuneUpPhoto,
-  'emergency-ac':      emergencyPhoto,
-  'heating-repair':    heatingPhoto,
-  'maintenance-plans': maintenancePhoto,
+  'ac-repair':            { src: repairPhoto,     alt: 'HVAC technician repairing a residential AC unit' },
+  'ac-maintenance':       { src: maintenancePhoto, alt: 'Adjusting a wall-mounted AC unit control during a maintenance visit' },
+  'heating-repair':       { src: heatingPhoto,     alt: 'Residential wall heater warmed by afternoon light' },
+  'system-installation':  { src: installPhoto,     alt: 'Newly installed modern wall-mounted mini-split AC unit' },
+  'emergency-service':    { src: emergencyPhoto,   alt: 'Emergency AC service call in progress' },
 }
 
 export default function Services() {
@@ -37,7 +36,7 @@ export default function Services() {
             letterSpacing: '-0.025em', color: 'var(--text)', margin: 0, marginBottom: '64px',
             maxWidth: '18ch',
           }}>
-            Cooling &amp; heating services for Valley homes
+            Cooling &amp; heating services for Tempe &amp; East Valley homes
           </h2>
         </Reveal>
 
@@ -85,9 +84,8 @@ function ServiceCard({ service, photo }) {
       {photo ? (
         <>
           <img
-            src={photo}
-            alt=""
-            aria-hidden="true"
+            src={photo.src}
+            alt={photo.alt}
             loading="lazy"
             decoding="async"
             className="service-card-img"
@@ -98,17 +96,17 @@ function ServiceCard({ service, photo }) {
           />
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(180deg, rgba(7,17,31,0.18) 0%, rgba(10,40,58,0.55) 50%, rgba(7,17,31,0.92) 100%)',
+            background: 'linear-gradient(180deg, rgba(27,24,21,0.18) 0%, rgba(50,36,20,0.55) 50%, rgba(27,24,21,0.92) 100%)',
           }} />
-          {/* Frosted glass edge — subtle cyan hairline for a premium, icy finish */}
+          {/* Frosted edge — subtle brass hairline for a grounded, premium finish */}
           <div style={{
             position: 'absolute', inset: 0,
-            boxShadow: 'inset 0 0 0 1px rgba(125,211,252,0.14)',
+            boxShadow: 'inset 0 0 0 1px rgba(232,182,127,0.14)',
             pointerEvents: 'none',
           }} />
         </>
       ) : (
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, var(--brand-navy) 0%, var(--brand-navy-mid) 60%, var(--brand-navy-deep) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, var(--brand-charcoal) 0%, var(--brand-charcoal-mid) 60%, var(--brand-charcoal-deep) 100%)' }} />
       )}
 
       <div style={{ position: 'relative', zIndex: 1 }}>

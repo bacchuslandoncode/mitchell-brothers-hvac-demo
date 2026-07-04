@@ -4,7 +4,7 @@ import './index.css'
 import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
-import WhyCallahanPage from './pages/WhyCallahanPage'
+import WhyMitchellBrothersPage from './pages/WhyMitchellBrothersPage'
 import ReviewsPage from './pages/ReviewsPage'
 import ServiceAreaPage from './pages/ServiceAreaPage'
 import ApplyPage from './pages/ApplyPage'
@@ -17,7 +17,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/why-callahan" element={<WhyCallahanPage />} />
+          <Route path="/why-us" element={<WhyMitchellBrothersPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/service-area" element={<ServiceAreaPage />} />
           <Route path="/apply" element={<ApplyPage />} />

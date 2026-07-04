@@ -1,44 +1,45 @@
 import { motion } from 'framer-motion'
-import Reveal, { staggerContainer, staggerItem } from '../components/Reveal'
-import butterfieldPhoto from '../assets/photos/butterfield-commons.webp'
-import cottonwoodPhoto from '../assets/photos/cottonwood-ranch.webp'
-import glendalePhoto from '../assets/photos/glendale-senior-living.webp'
-import thunderbirdPhoto from '../assets/photos/reserve-at-thunderbird.webp'
+import Reveal from '../components/Reveal'
+import { staggerContainer, staggerItem } from '../components/motionVariants'
+import residentialPhoto from '../assets/photos/condensers-exterior.jpg'
+import installPhoto from '../assets/photos/outside-ac-unit.jpg'
+import communityPhoto from '../assets/photos/scenario-community-property.webp'
+import multiFamilyPhoto from '../assets/photos/scenario-multi-family.webp'
 
-const projects = [
+const scenarios = [
   {
-    id: 'butterfield-commons',
-    name: 'Butterfield Commons',
-    tag: 'Multi-family HVAC project',
-    photo: butterfieldPhoto,
-    alt: 'Butterfield Commons multifamily project',
+    id: 'residential-repair',
+    name: 'Residential Repair Call',
+    tag: 'Single-family AC & heating repair',
+    photo: residentialPhoto,
+    alt: 'Multiple outdoor AC condenser units at a single-family home',
   },
   {
-    id: 'cottonwood-ranch',
-    name: 'Cottonwood Ranch',
-    tag: 'Multi-family HVAC project',
-    photo: cottonwoodPhoto,
-    alt: 'Cottonwood Ranch multifamily project',
+    id: 'system-installation',
+    name: 'New System Installation',
+    tag: 'Right-sized replacement systems',
+    photo: installPhoto,
+    alt: 'Newly installed outdoor AC condenser unit beside a home',
   },
   {
-    id: 'glendale-senior-living',
-    name: 'Glendale Senior Living',
-    tag: 'Community property HVAC work',
-    photo: glendalePhoto,
-    alt: 'Glendale Senior Living project',
+    id: 'community-property',
+    name: 'Community Property Service',
+    tag: 'Senior living & community HVAC',
+    photo: communityPhoto,
+    alt: 'HVAC service at a community property',
   },
   {
-    id: 'reserve-at-thunderbird',
-    name: 'Reserve at Thunderbird',
-    tag: 'Multi-family HVAC project',
-    photo: thunderbirdPhoto,
-    alt: 'Reserve at Thunderbird multifamily project',
+    id: 'multi-family',
+    name: 'Multi-Family Service',
+    tag: 'Apartment & multi-family HVAC',
+    photo: multiFamilyPhoto,
+    alt: 'Multi-family property HVAC service',
   },
 ]
 
-export default function Projects() {
+export default function ServiceScenarios() {
   return (
-    <section id="projects" style={{ position: 'relative', background: 'var(--surface-raised)' }}>
+    <section id="service-scenarios" style={{ position: 'relative', background: 'var(--surface-raised)' }}>
       <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto', padding: '108px var(--gutter) 116px' }}>
         <Reveal>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '22px' }}>
@@ -46,22 +47,22 @@ export default function Projects() {
             <span style={{
               fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.24em',
               textTransform: 'uppercase', color: 'var(--accent)',
-            }}>Projects</span>
+            }}>The Kind of Work We Do</span>
           </div>
           <h2 style={{
-            fontFamily: 'var(--font-display)', fontWeight: 700,
-            fontSize: 'clamp(34px, 4.4vw, 56px)', lineHeight: 1.08,
-            letterSpacing: '-0.02em', color: 'var(--text)', margin: 0, marginBottom: '20px',
+            fontFamily: 'var(--font-display)', fontWeight: 600,
+            fontSize: 'clamp(30px, 4vw, 50px)', lineHeight: 1.14,
+            letterSpacing: '-0.005em', color: 'var(--text)', margin: 0, marginBottom: '20px',
             maxWidth: '20ch',
           }}>
-            Built for homes and larger communities
+            From single homes to larger properties
           </h2>
           <p style={{
             fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: 1.75,
             color: 'var(--text-muted)', maxWidth: '58ch', marginBottom: '56px',
           }}>
-            From single-home service calls to multi-family properties, this section shows how
-            Callahan's project experience can be presented clearly.
+            These are illustrative service scenarios, not specific past jobs, showing the range
+            of work Mitchell Brothers can present clearly to homeowners and property managers alike.
           </p>
         </Reveal>
 
@@ -71,9 +72,9 @@ export default function Projects() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '28px' }}
-          className="projects-grid"
+          className="scenarios-grid"
         >
-          {projects.map(p => <ProjectCard key={p.id} project={p} />)}
+          {scenarios.map(s => <ScenarioCard key={s.id} scenario={s} />)}
         </motion.div>
 
         <Reveal delay={0.1}>
@@ -81,21 +82,22 @@ export default function Projects() {
             fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.04em',
             color: 'var(--text-dim)', marginTop: '32px', lineHeight: 1.6,
           }}>
-            Project details shown for demo layout and should be verified before launch.
+            Scenario photos shown for demo layout purposes and should be swapped for real project
+            photography before launch.
           </p>
         </Reveal>
       </div>
 
       <style>{`
         @media (max-width: 700px) {
-          .projects-grid { grid-template-columns: 1fr !important; }
+          .scenarios-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
   )
 }
 
-function ProjectCard({ project }) {
+function ScenarioCard({ scenario }) {
   return (
     <motion.div variants={staggerItem} style={{
       position: 'relative',
@@ -105,8 +107,8 @@ function ProjectCard({ project }) {
       border: '1px solid var(--border)',
     }}>
       <img
-        src={project.photo}
-        alt={project.alt}
+        src={scenario.photo}
+        alt={scenario.alt}
         loading="lazy"
         decoding="async"
         style={{
@@ -114,23 +116,23 @@ function ProjectCard({ project }) {
           objectFit: 'cover',
         }}
       />
-      {/* Frosted glass caption panel */}
+      {/* Frosted caption panel */}
       <div style={{
         position: 'absolute', left: 0, right: 0, bottom: 0,
-        background: 'rgba(15,29,46,0.55)',
-        backdropFilter: 'blur(10px) saturate(1.3)',
-        WebkitBackdropFilter: 'blur(10px) saturate(1.3)',
+        background: 'rgba(27,24,21,0.6)',
+        backdropFilter: 'blur(10px) saturate(1.2)',
+        WebkitBackdropFilter: 'blur(10px) saturate(1.2)',
         borderTop: '1px solid rgba(255,255,255,0.14)',
         padding: '18px 22px',
       }}>
         <h3 style={{
           fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '19px',
           color: '#fff', margin: 0, marginBottom: '4px',
-        }}>{project.name}</h3>
+        }}>{scenario.name}</h3>
         <p style={{
           fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.06em',
           textTransform: 'uppercase', color: 'rgba(255,255,255,0.78)', margin: 0,
-        }}>{project.tag}</p>
+        }}>{scenario.tag}</p>
       </div>
     </motion.div>
   )

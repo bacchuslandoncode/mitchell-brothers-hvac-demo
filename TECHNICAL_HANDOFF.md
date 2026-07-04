@@ -1,49 +1,40 @@
-# Technical Handoff — Davillier Law Group Website Demo
+# Technical Handoff — Mitchell Brothers Heating And Cooling Website Demo
 
-**Date:** 2026-06-30
-**Prepared by:** Landon Bacchus — lbacchus@davillierlawgroup.com
-**Repo:** https://github.com/bacchuslandon/davillier-website-demo
-**Live Demo:** https://newdavillierdemo.netlify.app/
+**Prepared by:** Landon Bacchus — bacchuslandon@icloud.com
+**Repo:** https://github.com/bacchuslandoncode/mitchell-brothers-hvac-demo
 
 ---
 
 ## Stack Note
 
-This site is built in **React + Vite**, not WordPress. Before launch, the firm should decide whether to:
-
-1. **Keep React/Vite** — deploy to Netlify or Vercel, fast and low-maintenance.
-2. **Port to WordPress** — higher editorial flexibility but requires a developer build-out.
-
-This document assumes React/Vite. See `LAUNCH_CHECKLIST.md` for the decision checkpoint.
+This site is built in **React + Vite**, deployed as a static SPA. No CMS, no backend, no database. All content lives in source files.
 
 ---
 
 ## Folder Structure
 
 ```
-davillier-premium/
+mitchell-brothers-hvac-demo/
 ├── public/
 │   ├── favicon.svg
 │   ├── icons.svg
 │   └── _redirects          # Netlify SPA routing fallback
 ├── src/
-│   ├── alt/                # Alternate layout experiments (not in production routing)
 │   ├── assets/
-│   │   ├── davillier/      # All firm photos and logos
-│   │   └── custom/         # Supplemental stock images
-│   ├── components/         # Shared layout components
-│   ├── data/               # Firm content data files
-│   ├── pages/              # Full page components (one per route)
-│   ├── sections/           # Homepage and reusable page sections
-│   ├── App.jsx             # Route definitions
-│   ├── AppAlt.jsx          # Alternate layout (not in use)
-│   ├── main.jsx            # React entry point
-│   └── index.css           # Global CSS custom properties and base styles
+│   │   ├── photos/          # Stock/demo photography
+│   │   └── textures/        # Background texture assets
+│   ├── components/          # Shared layout + UI components
+│   ├── data/                 # Content data files (services, service area, reviews, hours)
+│   ├── pages/                # Full page components (one per route)
+│   ├── sections/             # Homepage and reusable page sections
+│   ├── App.jsx                # Route definitions
+│   ├── main.jsx                # React entry point
+│   └── index.css                # Global CSS custom properties (design tokens) and base styles
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
 ├── package.json
-├── vercel.json             # Vercel SPA routing fallback (if switching hosts)
+├── vercel.json               # Vercel SPA fallback (unused if deploying to Netlify)
 └── vite.config.js
 ```
 
@@ -53,139 +44,89 @@ davillier-premium/
 
 ### Components (`src/components/`)
 
-| File                    | Purpose                                              |
-|-------------------------|------------------------------------------------------|
-| `Nav.jsx`               | Top navigation bar, mobile menu, attorneys dropdown  |
-| `Footer.jsx`            | Site-wide footer with offices and legal disclaimer   |
-| `Layout.jsx`            | Wraps Nav + Footer around page content               |
-| `PageHero.jsx`          | Reusable hero banner used on interior pages          |
-| `FirstLoadOverlay.jsx`  | Animated intro overlay shown on first page load      |
+| File                    | Purpose                                                      |
+|-------------------------|---------------------------------------------------------------|
+| `Nav.jsx`               | Top nav bar, mobile menu, `BrandMark` wordmark, `CallNowButton`, phone/address constants |
+| `Footer.jsx`            | Site-wide footer — brand, contact, hours, services, disclaimer |
+| `Layout.jsx`            | Wraps Nav + Footer around page content via `<Outlet />`        |
+| `PageHeader.jsx`        | Reusable dark hero banner used on interior pages               |
+| `FirstLoadOverlay.jsx`  | Brief fade-in overlay shown once per session on first load     |
+| `ImageSlot.jsx`         | Image wrapper that renders a labeled placeholder if no `src` is passed |
+| `Reveal.jsx`            | Scroll-triggered fade/rise wrapper (Framer Motion `whileInView`) |
+| `motionVariants.js`     | Shared `staggerContainer` / `staggerItem` Framer Motion variants |
 
 ### Sections (`src/sections/`)
 
-These are used inside `Home.jsx` and reused on interior pages.
+Reused across `src/pages/`.
 
-| File           | Section                                         |
-|----------------|-------------------------------------------------|
-| `Hero.jsx`     | Full-screen homepage hero with headline + CTAs  |
-| `About.jsx`    | Firm overview — pull quote, body copy, pillars  |
-| `Practice.jsx` | Practice area cards + numbered archive index    |
-| `Process.jsx`  | "How We Work" three-step process section        |
-| `Team.jsx`     | Partners grid + Associates & Counsel grid       |
-| `Offices.jsx`  | Asymmetric photo grid of three office locations |
-| `CTA.jsx`      | Contact/consultation CTA with office panel      |
+| File                  | Section                                                  |
+|-----------------------|-------------------------------------------------------------|
+| `Hero.jsx`            | Homepage hero — headline, CTAs, framed photo, trust badges |
+| `EmergencyStrip.jsx`  | "Sound familiar?" symptom checklist strip                  |
+| `Services.jsx`        | Services grid (5 cards, sourced from `data/services.js`)    |
+| `DesertHeat.jsx`      | "Why timing matters" — desert heat stat progression         |
+| `WhyMitchellBrothers.jsx` | Value-proposition grid                                  |
+| `Process.jsx`         | Three-step "how it works" section                            |
+| `MaintenanceCTA.jsx`  | Maintenance plan / financing CTA strip                        |
+| `ReviewHighlights.jsx`| Rating badge + theme-based review highlight cards            |
+| `ServiceScenarios.jsx`| Generic illustrative service-scenario cards (not real jobs)  |
+| `ServiceArea.jsx`     | Tempe home-base pin + nearby East Valley area tags            |
+| `Apply.jsx`           | Careers application form (demo — does not submit anywhere)   |
+| `FinalCTA.jsx`        | Closing call-to-action, reused at the bottom of every page    |
 
 ### Pages (`src/pages/`)
 
-| File                   | Route                        |
-|------------------------|------------------------------|
-| `Home.jsx`             | `/`                          |
-| `AboutPage.jsx`        | `/about`                     |
-| `AttorneysPage.jsx`    | `/attorneys`                 |
-| `StaffPage.jsx`        | `/staff`                     |
-| `PracticeAreasPage.jsx`| `/practice-areas`            |
-| `PracticeDetailPage.jsx`| `/practice-areas/:slug`     |
-| `ContactPage.jsx`      | `/contact`                   |
-| `NotFoundPage.jsx`     | `*` (404)                    |
+| File                          | Route             |
+|-------------------------------|--------------------|
+| `HomePage.jsx`                | `/`                |
+| `ServicesPage.jsx`            | `/services`        |
+| `WhyMitchellBrothersPage.jsx` | `/why-us`          |
+| `ReviewsPage.jsx`             | `/reviews`         |
+| `ServiceAreaPage.jsx`         | `/service-area`    |
+| `ApplyPage.jsx`               | `/apply`           |
+| `ContactPage.jsx`             | `/contact`         |
 
 ---
 
 ## Data Files (`src/data/`)
 
-### Attorney Data — `src/data/attorneys.js`
+| File                   | Exports                          | Notes |
+|-------------------------|-----------------------------------|-------|
+| `services.js`           | `services` (5 entries)            | AC Repair, AC Maintenance, Heating Repair, System Installation, Emergency Service |
+| `serviceAreas.js`       | `primaryArea`, `nearbyAreas`       | Tempe is the confirmed base; nearby cities are presented as general proximity, not a confirmed service list |
+| `reviewHighlights.js`   | `reviewSummary`, `reviewHighlights`| Rating/count and theme summaries from the business's public review listing — **not quoted testimonials** |
+| `hours.js`              | `hoursRows`                        | Currently a single "Open 24 hours, every day" row |
 
-Exports two arrays:
-- `partners` — managing partners and named partners
-- `associates` — associates and counsel
-
-Each entry has: `id`, `name`, `title`, `img` (imported asset).
-
-**To add or update an attorney:**
-1. Add their photo to `src/assets/davillier/` (use `.webp` for best performance).
-2. Import it at the top of `attorneys.js`.
-3. Add or edit their entry in the `partners` or `associates` array.
-
-### Staff Data — `src/data/staff.js`
-
-Exports `supportStaff` array. Same structure: `id`, `name`, `title`, `img`.
-
-**To add or update staff:**
-Same process as attorneys — add photo, import, update array.
-
-### Practice Area Data — `src/data/practiceAreas.js`
-
-Exports an array of practice area objects. Each entry has:
-- `slug` — URL path segment (e.g., `business-corporate`)
-- `title`, `sub`, `index`, `body`
-- `detail` — expanded copy shown on the detail page
-
-**To add a practice area:**
-Add an entry to the array and ensure `slug` matches the card in `Practice.jsx`.
+**To update business info:** phone/address live as constants in `src/components/Nav.jsx` (`MITCHELL_PHONE`, `MITCHELL_PHONE_TEL`, `MITCHELL_ADDRESS`). There is no business email address anywhere in the codebase — none was available at time of writing.
 
 ---
 
-## Images (`src/assets/davillier/`)
+## Images (`src/assets/photos/`)
 
-| File pattern                        | Used for              |
-|-------------------------------------|-----------------------|
-| `attorney-[name].webp`              | Attorney photos       |
-| `staff-[name].jpg` / `.webp`        | Staff photos          |
-| `office-[city].webp`                | Office location photos|
-| `logo-dlg-white.avif`               | Nav logo              |
-| `logo-dlg-transparent.png`          | Alternate logo use    |
-| `daniel-business.webp`              | Process section photo |
-| `conference-our-people.webp`        | Team/About photo      |
-| `exchange-centre.jpg`               | New Orleans office    |
+All photography is stock/demo imagery, not real photos of Mitchell Brothers jobs, staff, or property. Filenames describe the generic subject, not a real property or client (e.g. `scenario-multi-family.webp`, not a named apartment complex). **Every photo should be swapped for real photography before any real launch.**
 
-Prefer `.webp` or `.avif` for new images — smaller file sizes and better performance.
-
----
-
-## How to Update Content
-
-### Update attorney name or title
-Edit `src/data/attorneys.js` — find the entry by `id` and update `name` or `title`.
-
-### Swap an attorney photo
-1. Add the new photo to `src/assets/davillier/`.
-2. Update the import at the top of `attorneys.js`.
-3. Point the attorney's `img` field to the new import.
-
-### Update body copy
-Most copy lives directly in the section/page component files under `src/sections/` and `src/pages/`. Search for the text string and edit in place.
-
-### Update phone numbers or office addresses
-Edit `src/sections/CTA.jsx` (contact panel) and `src/sections/Offices.jsx` (office cards). The nav dropdown phone numbers live in `src/components/Nav.jsx`.
-
-### Update practice area descriptions
-Edit `src/data/practiceAreas.js`.
+There is no logo asset. The brand mark is a text-based "MB" monogram (`BrandMark` in `Nav.jsx`), used in the nav, footer, and closing CTA. Swap in a real logo file if/when the business provides one.
 
 ---
 
 ## Deployment (Netlify)
 
-The site is currently deployed at **https://newdavillierdemo.netlify.app/**.
-
-### Auto-deploy from GitHub
-Netlify is connected to the `main` branch of this repo. Every push to `main` triggers a new deploy automatically.
+`public/_redirects` contains:
+```
+/*    /index.html   200
+```
+This ensures React Router handles all routes correctly on Netlify (prevents 404s on direct URL access).
 
 ### Manual deploy steps
 1. Run `npm run build` locally to verify the build passes.
 2. Push changes to `main`.
-3. Netlify picks it up within ~60 seconds.
-
-### SPA routing
-`public/_redirects` contains:
-```
-/*    /index.html    200
-```
-This ensures React Router handles all routes correctly on Netlify (prevents 404s on direct URL access).
+3. Connect the repo in Netlify (build command `npm run build`, publish directory `dist`).
 
 ### Environment variables
-No environment variables are required for the current build. If analytics or form handling is added later, add them in the Netlify dashboard under **Site Settings → Environment Variables**.
+None required. The Apply form does not submit anywhere yet — wire it to Netlify Forms, Formspree, or an email/CRM integration before real use.
 
 ---
 
-## Alt Files (`src/alt/`)
+## Known Gaps To Close Before A Real Launch
 
-`CTAAlt.jsx`, `HeroAlt.jsx`, `NavAlt.jsx`, `PracticeAlt.jsx` and `AppAlt.jsx` are experimental alternate layouts explored during the design process. They are **not active in production routing** and can be removed before launch if desired.
+See `LAUNCH_CHECKLIST.md` and `QA_REPORT.md` for the full list — in short: real photography, a real logo, license/insurance confirmation, a working Apply/contact form backend, and reverification of the review rating, service-area list, and hours against the business's current listing.

@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion'
-import Reveal, { staggerContainer, staggerItem } from '../components/Reveal'
+import Reveal from '../components/Reveal'
+import { staggerContainer, staggerItem } from '../components/motionVariants'
 import ImageSlot from '../components/ImageSlot'
 import whyPhoto from '../assets/photos/why-tech-service.webp'
 
 const reasons = [
-  { title: 'Local Phoenix HVAC service',        body: 'Based in the Valley and familiar with what triple-digit summers do to home cooling systems.' },
-  { title: 'Fast-response focus',                body: 'We prioritize same-day appointments during peak heat. A broken AC in Phoenix can’t wait a week.' },
-  { title: 'Clear communication',                body: 'Straightforward diagnosis and pricing before any work starts. No surprise charges.' },
-  { title: 'Repair-first mindset',                body: 'We fix what can be fixed. Replacement is a recommendation, never the default answer.' },
-  { title: 'Residential cooling specialists',     body: 'We focus on home AC and heating systems. We don’t spread thin across commercial and industrial work.' },
+  { title: 'Open 24 hours',                   body: 'A broken system doesn’t wait for business hours, and neither do we. Calls are answered around the clock.' },
+  { title: 'Fast, on-time response',           body: 'Customers consistently mention how quickly we arrive and how well we keep to the scheduled window.' },
+  { title: 'Honest diagnostics',               body: 'A clear, on-site explanation of what’s wrong before any work starts. No guessing games.' },
+  { title: 'Clear repair options',             body: 'We lay out the options and the cost of each, so the decision is yours to make.' },
+  { title: 'Reliable workmanship',             body: 'Work that holds up, with a noticeable improvement in system performance afterward.' },
 ]
 
 const pendingBadge = {
@@ -16,9 +17,9 @@ const pendingBadge = {
   body: 'License and insurance details to be added once verified with the business.',
 }
 
-export default function WhyCallahan() {
+export default function WhyMitchellBrothers() {
   return (
-    <section id="why-callahan" style={{ position: 'relative', background: 'var(--bg-alt)' }}>
+    <section id="why-mitchell-brothers" style={{ position: 'relative', background: 'var(--bg-alt)' }}>
       <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto', padding: '108px var(--gutter) 116px' }}>
 
         <div className="why-header" style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '48px', alignItems: 'center', marginBottom: '64px' }}>
@@ -28,15 +29,15 @@ export default function WhyCallahan() {
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.24em',
                 textTransform: 'uppercase', color: 'var(--accent)',
-              }}>Why Callahan</span>
+              }}>Why Mitchell Brothers</span>
             </div>
             <h2 style={{
-              fontFamily: 'var(--font-display)', fontWeight: 700,
-              fontSize: 'clamp(34px, 4.4vw, 56px)', lineHeight: 1.08,
-              letterSpacing: '-0.02em', color: 'var(--text)', margin: 0,
+              fontFamily: 'var(--font-display)', fontWeight: 600,
+              fontSize: 'clamp(30px, 4vw, 50px)', lineHeight: 1.14,
+              letterSpacing: '-0.005em', color: 'var(--text)', margin: 0,
               maxWidth: '20ch',
             }}>
-              A straightforward HVAC company for Valley homeowners
+              A straightforward HVAC contractor for Tempe homeowners
             </h2>
           </Reveal>
           <Reveal delay={0.1}>

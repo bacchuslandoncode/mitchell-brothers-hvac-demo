@@ -1,19 +1,13 @@
 import { Link } from 'react-router-dom'
-import { CALLAHAN_PHONE, CALLAHAN_PHONE_TEL, CALLAHAN_EMAIL } from './Nav'
-import logoImg from '../assets/callahan-logo/callahan-logo.webp'
+import { MITCHELL_PHONE, MITCHELL_PHONE_TEL, MITCHELL_ADDRESS, BrandMark } from './Nav'
+import { hoursRows } from '../data/hours'
 
 const serviceLinks = [
   { label: 'AC Repair',            to: '/services'      },
-  { label: 'AC Installation',      to: '/services'      },
-  { label: 'AC Tune-Ups',          to: '/services'      },
-  { label: 'Emergency AC Service', to: '/services'      },
+  { label: 'AC Maintenance',       to: '/services'      },
   { label: 'Heating Repair',       to: '/services'      },
-  { label: 'Maintenance Plans',    to: '/services'      },
-]
-
-export const hoursRows = [
-  { days: 'Monday to Friday', time: '9am to 5pm' },
-  { days: 'Saturday and Sunday', time: 'By appointment only' },
+  { label: 'System Installation',  to: '/services'      },
+  { label: 'Emergency Service',    to: '/services'      },
 ]
 
 export default function Footer() {
@@ -25,8 +19,8 @@ export default function Footer() {
     }}>
       {/* Diagonal grid texture */}
       <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.02,
-        backgroundImage: 'repeating-linear-gradient(45deg, rgba(56,189,248,1) 0px, rgba(56,189,248,1) 1px, transparent 0px, transparent 50%)',
+        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.025,
+        backgroundImage: 'repeating-linear-gradient(45deg, rgba(216,152,92,1) 0px, rgba(216,152,92,1) 1px, transparent 0px, transparent 50%)',
         backgroundSize: '28px 28px',
       }} />
 
@@ -47,31 +41,20 @@ export default function Footer() {
 
           {/* Col 1: Brand */}
           <div>
-            <span style={{
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              width: '56px', height: '56px', borderRadius: '9px',
-              background: '#fff', padding: '6px', marginBottom: '18px',
-              boxShadow: '0 2px 10px rgba(0,0,0,0.28)',
-            }}>
-              <img
-                src={logoImg}
-                alt="Callahan Air Conditioning logo"
-                loading="lazy"
-                decoding="async"
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
-              />
-            </span>
+            <div style={{ marginBottom: '18px' }}>
+              <BrandMark size={56} />
+            </div>
             <div style={{
               fontFamily: 'var(--font-display)', fontWeight: 600,
               fontSize: '22px', color: 'var(--text)', marginBottom: '14px',
             }}>
-              Callahan <span style={{ color: 'var(--accent)' }}>Air Conditioning</span>
+              Mitchell Brothers <span style={{ color: 'var(--accent)' }}>Heating &amp; Cooling</span>
             </div>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 400,
               lineHeight: 1.8, color: 'var(--text-muted)', maxWidth: '32ch',
             }}>
-              Same-day AC repair, installation, and maintenance for the Greater Phoenix area.
+              24-hour AC repair, heating repair, and system installation for Tempe and the East Valley.
             </p>
           </div>
 
@@ -81,18 +64,13 @@ export default function Footer() {
               fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em',
               textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '22px',
             }}>Contact</div>
-            <a href={CALLAHAN_PHONE_TEL} style={{
+            <a href={MITCHELL_PHONE_TEL} style={{
               fontFamily: 'var(--font-mono)', fontSize: '16px', letterSpacing: '0.03em',
-              color: 'var(--accent)', display: 'block', marginBottom: '10px', textDecoration: 'none',
-            }}>{CALLAHAN_PHONE}</a>
-            <a href={`mailto:${CALLAHAN_EMAIL}`} style={{
-              fontFamily: 'var(--font-mono)', fontSize: '13px', letterSpacing: '0.02em',
-              color: 'var(--text-dim)', display: 'block', marginBottom: '14px', textDecoration: 'none',
-              wordBreak: 'break-word',
-            }}>{CALLAHAN_EMAIL}</a>
+              color: 'var(--accent)', display: 'block', marginBottom: '14px', textDecoration: 'none',
+            }}>{MITCHELL_PHONE}</a>
             <p style={{
-              fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--text-muted)', margin: 0,
-            }}>Arizona, USA</p>
+              fontFamily: 'var(--font-body)', fontSize: '15px', lineHeight: 1.6, color: 'var(--text-muted)', margin: 0,
+            }}>{MITCHELL_ADDRESS}</p>
           </div>
 
           {/* Col 3: Hours */}
@@ -111,7 +89,7 @@ export default function Footer() {
             </div>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--text-muted)', margin: 0,
-            }}>We take calls 24/7.</p>
+            }}>We take calls around the clock.</p>
           </div>
 
           {/* Col 4: Services */}
@@ -140,11 +118,11 @@ export default function Footer() {
             fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '0.06em',
             color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '62ch',
           }}>
-            © {new Date().getFullYear()} Callahan Air Conditioning.
+            © {new Date().getFullYear()} Mitchell Brothers Heating And Cooling.
             <div style={{ marginTop: '6px', opacity: 0.75 }}>
-              This is a redesign concept: a conversion-focused refresh of the existing Callahan
-              Air Conditioning site, built for design and pitch purposes. Some service and
-              project details shown here are placeholders and should be verified before launch.
+              This is a demo concept site built for design and pitch purposes, based on publicly
+              available business information. Some copy and layout details are placeholders and
+              should be verified with the business before launch.
             </div>
           </div>
         </div>

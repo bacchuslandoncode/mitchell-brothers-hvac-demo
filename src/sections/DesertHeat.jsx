@@ -6,9 +6,9 @@ import heatPhoto from '../assets/photos/phoenix-heat-condenser.webp'
 
 const stages = [
   {
-    stat: '115°F+',
-    title: 'Phoenix heat',
-    body: 'Valley summers push outdoor condenser units past their design limits for weeks at a time.',
+    stat: '110°F+',
+    title: 'East Valley heat',
+    body: 'Tempe summers push outdoor condenser units past their design limits for weeks at a time.',
   },
   {
     stat: '2-3x',
@@ -21,13 +21,13 @@ const stages = [
     body: 'The hottest afternoons are exactly when an overworked system is most likely to fail.',
   },
   {
-    stat: 'Same-day',
-    title: 'Fast repair',
-    body: 'Callahan gets to your home same-day, before a small issue turns into a no-AC emergency.',
+    stat: '24 Hours',
+    title: 'Always on call',
+    body: 'Mitchell Brothers is open around the clock, so a breakdown never has to wait until morning.',
   },
 ]
 
-export default function PhoenixHeat() {
+export default function DesertHeat() {
   const trackRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: trackRef,
@@ -37,11 +37,11 @@ export default function PhoenixHeat() {
 
   return (
     <section className="section-dark" style={{ position: 'relative', background: 'var(--bg)', overflow: 'hidden' }}>
-      {/* Cool glow */}
+      {/* Warm glow */}
       <div style={{
         position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)',
         width: '900px', height: '500px',
-        background: 'radial-gradient(ellipse, rgba(56,189,248,0.12) 0%, transparent 65%)',
+        background: 'radial-gradient(ellipse, rgba(216,152,92,0.12) 0%, transparent 65%)',
         pointerEvents: 'none',
       }} />
 
@@ -56,9 +56,9 @@ export default function PhoenixHeat() {
               }}>Why Timing Matters</span>
             </div>
             <h2 style={{
-              fontFamily: 'var(--font-display)', fontWeight: 700,
-              fontSize: 'clamp(32px, 4.4vw, 54px)', lineHeight: 1.08,
-              letterSpacing: '-0.02em', color: 'var(--text)', margin: 0,
+              fontFamily: 'var(--font-display)', fontWeight: 600,
+              fontSize: 'clamp(30px, 4vw, 50px)', lineHeight: 1.12,
+              letterSpacing: '-0.005em', color: 'var(--text)', margin: 0,
               maxWidth: '22ch',
             }}>
               The hotter it gets, the harder your system works. That makes a breakdown more likely.
@@ -67,22 +67,22 @@ export default function PhoenixHeat() {
           <Reveal delay={0.12}>
             <ImageSlot
               src={heatPhoto}
-              label="AC condenser unit under desert sun / Phoenix heat"
-              alt="Outdoor AC condenser unit under the Phoenix desert sun"
+              label="AC condenser unit under desert sun"
+              alt="Outdoor AC condenser unit under the East Valley desert sun"
               aspect="4 / 3"
             />
           </Reveal>
         </div>
 
-        {/* Connector line — thermostat ramp: heat (red/orange/amber) cooling into the icy accent as the fix arrives */}
+        {/* Connector line — thermostat ramp: heat (red/orange/amber) cooling into the brass accent as the fix arrives */}
         <div className="heat-track" style={{
           position: 'relative', height: '4px', borderRadius: '2px', background: 'var(--border)',
           marginBottom: '48px', display: 'none', overflow: 'hidden',
         }}>
           <motion.div style={{
             position: 'absolute', inset: 0, borderRadius: '2px',
-            background: 'linear-gradient(90deg, #EF4444 0%, #F97316 35%, #FACC15 55%, #38BDF8 78%, #00A8E8 100%)',
-            boxShadow: '0 0 10px rgba(239,68,68,0.30), 0 0 16px rgba(0,168,232,0.30)',
+            background: 'linear-gradient(90deg, #EF4444 0%, #F97316 35%, #FACC15 55%, #D8985C 78%, #A8672E 100%)',
+            boxShadow: '0 0 10px rgba(239,68,68,0.30), 0 0 16px rgba(168,103,46,0.30)',
             transformOrigin: 'left', scaleX: lineScale,
           }} />
         </div>
@@ -92,9 +92,9 @@ export default function PhoenixHeat() {
             <Reveal key={s.title} delay={i * 0.1}>
               <div style={{ background: 'var(--bg)', padding: '32px 26px', height: '100%' }}>
                 <div style={{
-                  fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '32px',
+                  fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '32px',
                   color: i === stages.length - 1 ? 'var(--accent-light)' : 'var(--accent-dim)',
-                  marginBottom: '16px', letterSpacing: '-0.02em',
+                  marginBottom: '16px', letterSpacing: '-0.01em',
                 }}>{s.stat}</div>
                 <h3 style={{
                   fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '15px',

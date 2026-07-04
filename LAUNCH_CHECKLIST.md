@@ -1,103 +1,106 @@
-# Launch Checklist — Davillier Law Group Website
+# Launch Checklist — Mitchell Brothers Heating And Cooling Website
 
-**Demo URL:** https://newdavillierdemo.netlify.app/
-**Repo:** https://github.com/bacchuslandon/davillier-website-demo
-**Prepared by:** Landon Bacchus — lbacchus@davillierlawgroup.com
+**Repo:** https://github.com/bacchuslandoncode/mitchell-brothers-hvac-demo
+**Prepared by:** Landon Bacchus — bacchuslandon@icloud.com
 
-Mark each item complete before going live.
+Mark each item complete before treating this as a real, live business site. This demo is currently pitch-ready, not launch-ready.
 
 ---
 
 ## 1. Decisions & Approvals
 
-- [ ] **React/Vite vs WordPress decision finalized**
-  The demo is built in React/Vite deployed on Netlify. If the firm requires WordPress (for editorial CMS, existing hosting, or third-party plugins), a port will be required before launch. Confirm with Derius and firm leadership.
-
-- [ ] **Final firm approval on all content**
-  All copy, attorney names/titles, staff roster, office addresses, phone numbers, and practice area descriptions reviewed and approved by an authorized firm representative.
-
-- [ ] **Derius technical review complete**
-  Derius to review codebase, hosting setup, and any integration requirements (CRM, intake forms, analytics) before go-live sign-off.
+- [ ] **Final business approval on all content** — all copy, services, hours, and service-area language reviewed and approved by an authorized representative of Mitchell Brothers.
+- [ ] **License/insurance info confirmed** — the "Why Us" page currently shows a "Licensed & insured — pending verification" placeholder. Replace with real license number and insurer once confirmed, or remove the badge.
+- [ ] **Review rating reverified** — the "5.0 from 3 reviews" figure reflects a public listing at time of writing. Reverify against the live listing before launch; update `src/data/reviewHighlights.js` if it has changed.
 
 ---
 
-## 2. Domain & DNS
+## 2. Content Accuracy
 
-- [ ] **Target domain confirmed** (e.g., `davillierlawgroup.com` or a subdomain)
-- [ ] **DNS access confirmed** — whoever manages DNS records has credentials ready
+- [ ] **Phone number confirmed** — (623) 462-7648, used throughout via `MITCHELL_PHONE` in `src/components/Nav.jsx`.
+- [ ] **Address confirmed** — 805 W Baseline Rd, Tempe, AZ 85283, used via `MITCHELL_ADDRESS`.
+- [ ] **Hours confirmed** — currently "Open 24 hours, every day" (`src/data/hours.js`).
+- [ ] **Service list confirmed** — AC Repair, AC Maintenance, Heating Repair, System Installation, Emergency Service (`src/data/services.js`).
+- [ ] **Service-area language confirmed** — Tempe is presented as the confirmed home base; nearby East Valley cities (Chandler, Mesa, Ahwatukee, Guadalupe, South Scottsdale) are presented as general proximity, not an official service-area list. Confirm the real service radius and update `src/data/serviceAreas.js` accordingly.
+- [ ] **Business email** — none is published anywhere in this demo. Add one via `src/components/Nav.jsx` and the footer/contact page if the business wants a public email.
+
+---
+
+## 3. Photography & Branding
+
+- [ ] **Replace all stock photography** — every photo in `src/assets/photos/` is generic stock/demo imagery, not real photos of the business, its technicians, or its work. See `TECHNICAL_HANDOFF.md` for the full asset list.
+- [ ] **Add a real logo** — the site currently uses a text-based "MB" monogram (`BrandMark` in `src/components/Nav.jsx`) in place of a logo file. Swap in a real logo asset if the business has one.
+- [ ] **"Service Scenarios" section** — the home page's illustrative scenario cards use generic stock photography and generic labels (not real past jobs). Replace with real project photos and descriptions if available, or keep clearly generic.
+
+---
+
+## 4. Domain & DNS
+
+- [ ] **Target domain confirmed**
+- [ ] **DNS access confirmed**
 - [ ] **SSL certificate** — Netlify provisions automatically via Let's Encrypt; confirm it activates after domain points
-- [ ] **Old site backed up** — full backup of existing website files and database (if WordPress) before any DNS changes
-- [ ] **DNS cutover plan in place** — low TTL set in advance; rollback plan documented
-- [ ] **www redirect configured** — ensure `www.` redirects to apex or vice versa
+- [ ] **www redirect configured**
 - [ ] **Netlify custom domain added** in Netlify dashboard under Domain Management
 
 ---
 
-## 3. Redirects & Routing
+## 5. Redirects & Routing
 
 - [ ] **`public/_redirects` in place** — `/* /index.html 200` already committed; confirm Netlify picks it up
-- [ ] **301 redirects for old URLs** — if old site had `/attorneys.html`, `/practice-areas.php`, etc., add redirects in `_redirects` to map old paths to new routes
-- [ ] **No broken internal links** — all `/practice-areas/:slug` routes resolve to valid pages
+- [ ] **No broken internal links** — all 7 routes resolve (see `README.md` for the route table)
 
 ---
 
-## 4. SEO & Metadata
+## 6. SEO & Metadata
 
-- [ ] **Page titles set per route** — each page sets `document.title` correctly (verify in browser tab for all 8 routes)
-- [ ] **Meta description** — add `<meta name="description">` per page (currently not implemented; recommend adding before launch)
-- [ ] **Open Graph tags** — `og:title`, `og:description`, `og:image` for social sharing
-- [ ] **Canonical URLs** — set canonical `<link>` tags if multiple URLs could resolve to the same content
-- [ ] **`robots.txt`** — add `public/robots.txt` allowing all crawlers (or restrict staging URL before launch)
-- [ ] **Sitemap** — generate and submit `sitemap.xml`; Netlify plugin or manual generation
-- [ ] **Google Search Console** — add property for the live domain; submit sitemap
+- [ ] **`<title>` and meta description reviewed** — currently marked as a demo concept in `index.html` (`noindex, nofollow`). Remove the noindex directive and finalize copy before going live.
+- [ ] **Open Graph / Twitter card content reviewed**
+- [ ] **`robots.txt`** — add one allowing crawlers once ready to go live
+- [ ] **Sitemap** — generate and submit `sitemap.xml`
+- [ ] **Structured data (LocalBusiness/HVACBusiness JSON-LD)** — intentionally omitted until address/license are fully confirmed; add once verified
 
 ---
 
-## 5. Analytics
+## 7. Analytics
 
-- [ ] **Analytics provider decided** — Google Analytics 4 or Netlify Analytics
-- [ ] **Tracking code installed** — add GA4 snippet to `index.html` or via Netlify plugin
-- [ ] **Goal/conversion tracking** — track "Request a Consultation" clicks and phone link clicks
-
----
-
-## 6. Performance & Images
-
-- [ ] **All photos in `.webp` or `.avif`** — most attorney/staff photos already in `.webp`; verify no remaining `.jpg` in active use
-- [ ] **Large images compressed** — `staff-denya-ricks.jpg` is ~338 kB; convert to `.webp` before launch
-- [ ] **Lazy loading confirmed** — all `<img>` tags in card components use `loading="lazy"`
-- [ ] **Lighthouse audit run** — target Performance ≥ 90, Accessibility ≥ 90 on mobile and desktop
+- [ ] **Analytics provider decided** — none currently installed
+- [ ] **Tracking code installed**
+- [ ] **Conversion tracking** — track "Call Now" clicks and the Apply/Contact form submissions
 
 ---
 
-## 7. Mobile & Cross-Browser QA
+## 8. Performance & Images
 
-- [ ] **Mobile QA on real device** — test on iPhone (Safari) and Android (Chrome)
-- [ ] **Tablet layout verified** — 860px breakpoint reviewed
+- [ ] **All photos already in `.webp`** — confirmed
+- [ ] **Lazy loading confirmed** — non-critical `<img>` tags use `loading="lazy"`
+- [ ] **Lighthouse audit run** — not yet run against a deployed URL; target Performance ≥ 90, Accessibility ≥ 90
+
+---
+
+## 9. Mobile & Cross-Browser QA
+
+- [ ] **Mobile QA on a real device** — this demo was checked in an emulated mobile viewport only (see `QA_REPORT.md`); verify on an actual iPhone/Android before launch
 - [ ] **Cross-browser check** — Chrome, Safari, Firefox, Edge
 
 ---
 
-## 8. Legal & Compliance
+## 10. Forms
 
-- [ ] **Attorney advertising disclaimer in footer** — already present; confirm wording approved by firm
-- [ ] **Privacy policy page** — add if the site collects any user data (forms, analytics)
-- [ ] **ADA / WCAG accessibility** — run axe or Lighthouse accessibility audit; address critical issues
-
----
-
-## 9. Forms & Contact
-
-- [ ] **"Request a Consultation" destination confirmed** — currently links to `/contact` page; confirm whether a form, Calendly, or email link is desired
-- [ ] **Contact form (if added)** — connect to Netlify Forms, Formspree, or firm CRM
-- [ ] **Email address confirmed** — `info@davillierlawgroup.com` is the correct public contact address
+- [ ] **Apply form backend** — `src/sections/Apply.jsx` is a demo form that does not submit anywhere. Connect to Netlify Forms, Formspree, or an email/CRM integration before real use.
+- [ ] **Contact page** — currently phone + address only, no contact form. Decide if one is wanted.
 
 ---
 
-## 10. Post-Launch
+## 11. Legal & Compliance
 
-- [ ] **Netlify deploy notifications set up** — email or Slack alert on deploy failure
-- [ ] **Uptime monitoring** — set up UptimeRobot or similar for the live domain
-- [ ] **Search Console verified** — confirm crawling begins after DNS propagation
-- [ ] **Test all routes on live domain** — repeat QA checklist against production URL
-- [ ] **Announce internally** — notify firm staff of new URL
+- [ ] **License/insurance disclosure** — see item 1 above
+- [ ] **Privacy policy page** — add if any form collects user data
+- [ ] **ADA / WCAG accessibility** — run an accessibility audit (the project has `audit`/`scan` tooling available) and address critical issues
+
+---
+
+## 12. Post-Launch
+
+- [ ] **Netlify deploy notifications set up**
+- [ ] **Uptime monitoring**
+- [ ] **Test all routes on the live domain**

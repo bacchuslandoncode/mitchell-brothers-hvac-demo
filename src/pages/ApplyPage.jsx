@@ -4,14 +4,14 @@ import Apply from '../sections/Apply'
 
 export default function ApplyPage() {
   useEffect(() => {
-    document.title = 'Apply | Callahan Air Conditioning'
+    document.title = 'Apply | Mitchell Brothers Heating And Cooling'
   }, [])
 
   return (
     <>
       <PageHeader
         eyebrow="Careers"
-        title="Work with Callahan"
+        title="Work with Mitchell Brothers"
       />
       <Apply />
     </>
