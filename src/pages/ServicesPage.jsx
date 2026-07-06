@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import PageHeader from '../components/PageHeader'
 import Services from '../sections/Services'
 import MaintenanceCTA from '../sections/MaintenanceCTA'
-import FinalCTA from '../sections/FinalCTA'
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -18,7 +17,6 @@ export default function ServicesPage() {
       />
       <Services />
       <MaintenanceCTA />
-      <FinalCTA />
     </>
   )
 }

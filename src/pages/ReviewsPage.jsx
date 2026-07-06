@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import PageHeader from '../components/PageHeader'
 import ReviewHighlights from '../sections/ReviewHighlights'
-import FinalCTA from '../sections/FinalCTA'
 
 export default function ReviewsPage() {
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function ReviewsPage() {
         title="What Mitchell Brothers customers mention"
       />
       <ReviewHighlights />
-      <FinalCTA />
     </>
   )
 }

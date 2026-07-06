@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import PageHeader from '../components/PageHeader'
 import ServiceArea from '../sections/ServiceArea'
-import FinalCTA from '../sections/FinalCTA'
 
 export default function ServiceAreaPage() {
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function ServiceAreaPage() {
         title="Where Mitchell Brothers works"
       />
       <ServiceArea />
-      <FinalCTA />
     </>
   )
 }

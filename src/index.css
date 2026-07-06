@@ -1,45 +1,50 @@
-/* ─── Design Tokens — warm brass/copper + charcoal trade-professional palette ─── */
+/* ─── Design Tokens — "Frosted Air": graphite + air teal + cool cyan ───
+   Clean cold air, trustworthy local HVAC service, modern home comfort.
+   No navy, no orange, no brass/copper. Air Teal is the one CTA/action
+   color everywhere — emergency emphasis comes from placement, border,
+   icon, and typography, not a second hot color. ─────────────────────── */
 :root {
-  /* Warm stone / paper backgrounds */
-  --bg:              #F8F5F0;
-  --bg-alt:          #F1EAE0;
+  /* Warm Off-White page background, Clean White cards */
+  --bg:              #F8F5EF;
+  --bg-alt:          #EAFBFF;
   --surface:         #FFFFFF;
-  --surface-raised:  #ECE2D2;
+  --surface-raised:  #E0F3F5;
 
-  --text:            #211D18;
-  --text-muted:      #5C5348;
-  --text-dim:        #7A6F60;
+  /* Deep Text / Muted Text — body copy */
+  --text:            #172125;
+  --text-muted:      #637277;
+  --text-dim:        #8CA0A5;
 
-  /* Brass / copper — primary accent + CTA */
-  --accent:          #A8672E;
-  --accent-light:    #C88A4C;
-  --accent-dim:      #7E4E22;
-  --accent-glow:     rgba(168, 103, 46, 0.14);
-  --accent-glow-sm:  rgba(168, 103, 46, 0.07);
+  /* Air Teal — CTAs, links, eyebrows (deep/text-safe shade for small text) */
+  --accent:          #00666D;
+  --accent-light:    #5ED7E5;
+  --accent-dim:      #004F54;
+  --accent-glow:     rgba(94, 215, 229, 0.14);
+  --accent-glow-sm:  rgba(94, 215, 229, 0.07);
 
-  /* CTA emphasis — same brass family */
-  --urgency:         #A8672E;
-  --urgency-light:   #C88A4C;
-  --urgency-dim:     #7E4E22;
-  --urgency-glow:    rgba(168, 103, 46, 0.18);
+  /* Same teal family — emergency/24-7 stands out via layout, not a new hue */
+  --urgency:         #00666D;
+  --urgency-light:   #5ED7E5;
+  --urgency-dim:     #004F54;
+  --urgency-glow:    rgba(94, 215, 229, 0.18);
 
-  --border:          rgba(33, 29, 24, 0.12);
-  --border-strong:   rgba(33, 29, 24, 0.22);
+  --border:          #D9E3E5;
+  --border-strong:   #C3D3D6;
   --glass:           rgba(255, 255, 255, 0.72);
 
-  /* Deep charcoal/graphite — consumed by .section-dark */
-  --brand-charcoal:      #1B1815;
-  --brand-charcoal-mid:  #221E1A;
-  --brand-charcoal-deep: #171310;
+  /* Graphite — consumed by .section-dark (nav, footer, dark sections) */
+  --brand-charcoal:      #202A2E;
+  --brand-charcoal-mid:  #344247;
+  --brand-charcoal-deep: #171E21;
 
   /* Palette reference aliases (same values, exact spec names) */
-  --primary:         #A8672E;
-  --primary-dark:    #7E4E22;
-  --primary-soft:    #F1E1CC;
-  --accent-2:        #C88A4C;
-  --muted:           #5C5348;
-  --dark:            #211D18;
-  --dark-soft:       #221E1A;
+  --primary:         #008C95;
+  --primary-dark:    #006A72;
+  --primary-soft:    #D6F0F2;
+  --accent-2:        #5ED7E5;
+  --muted:           #637277;
+  --dark:            #0B1416;
+  --dark-soft:       #344247;
 
   --font-display:    'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body:       'DM Sans', system-ui, sans-serif;
@@ -49,32 +54,32 @@
   --gutter: 48px;
 }
 
-/* ─── Dark section — charcoal/graphite with brass glow ────────────── */
+/* ─── Dark section — Graphite with cool-cyan glow ─────────────────── */
 .section-dark {
-  --bg:              #1B1815;
-  --bg-alt:          #221E1A;
-  --surface:         #221E1A;
-  --surface-raised:  #2A251F;
+  --bg:              #202A2E;
+  --bg-alt:          #171E21;
+  --surface:         #344247;
+  --surface-raised:  #3D4C52;
 
-  --text:            #F3EDE2;
-  --text-muted:      #B9AC9A;
-  --text-dim:        #8C8171;
+  --text:            #F8F5EF;
+  --text-muted:      #A8BEC2;
+  --text-dim:        #71898D;
 
-  /* Warm brass glow on dark */
-  --accent:          #D8985C;
-  --accent-light:    #E8B67F;
-  --accent-dim:      #C4813F;
-  --accent-glow:     rgba(216, 152, 92, 0.18);
-  --accent-glow-sm:  rgba(216, 152, 92, 0.09);
+  /* Cool Cyan glow on graphite */
+  --accent:          #5ED7E5;
+  --accent-light:    #EAFBFF;
+  --accent-dim:      #008C95;
+  --accent-glow:     rgba(94, 215, 229, 0.18);
+  --accent-glow-sm:  rgba(94, 215, 229, 0.09);
 
-  --urgency:         #D8985C;
-  --urgency-light:   #E8B67F;
-  --urgency-dim:     #C4813F;
-  --urgency-glow:    rgba(216, 152, 92, 0.22);
+  --urgency:         #5ED7E5;
+  --urgency-light:   #EAFBFF;
+  --urgency-dim:     #008C95;
+  --urgency-glow:    rgba(94, 215, 229, 0.22);
 
-  --border:          rgba(232, 182, 127, 0.12);
-  --border-strong:   rgba(232, 182, 127, 0.22);
-  --glass:           rgba(34, 30, 26, 0.6);
+  --border:          rgba(94, 215, 229, 0.14);
+  --border-strong:   rgba(94, 215, 229, 0.24);
+  --glass:           rgba(32, 42, 46, 0.6);
 }
 
 /* ─── Reset ─────────────────────────────────────────────────────── */

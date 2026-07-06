@@ -6,7 +6,7 @@ import maintenancePhoto from '../assets/photos/maintenance-tuneup.webp'
 export default function FinalCTA() {
   return (
     <section className="section-dark" style={{ position: 'relative', background: 'var(--bg)', overflow: 'hidden' }}>
-      {/* Background texture — visible HVAC/tools photo, tinted with a warm charcoal wash */}
+      {/* Background texture — visible HVAC/tools photo, tinted with a navy wash */}
       <img
         src={maintenancePhoto}
         alt=""
@@ -20,17 +20,18 @@ export default function FinalCTA() {
       />
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(180deg, rgba(27,24,21,0.68) 0%, rgba(27,24,21,0.76) 50%, rgba(27,24,21,0.7) 100%)',
+        background: 'linear-gradient(180deg, rgba(32,42,46,0.68) 0%, rgba(32,42,46,0.76) 50%, rgba(32,42,46,0.7) 100%)',
+        pointerEvents: 'none',
+      }} />
+      {/* Subtle teal wash — quietly reinforces the CTA below without competing with it */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(160deg, rgba(0,140,149,0.14) 0%, transparent 45%, rgba(0,140,149,0.1) 100%)',
         pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(160deg, rgba(85,58,26,0.35) 0%, transparent 45%, rgba(85,58,26,0.28) 100%)',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 60% 70% at 50% 0%, rgba(216,152,92,0.2) 0%, transparent 60%)',
+        background: 'radial-gradient(ellipse 60% 70% at 50% 0%, rgba(94,215,229,0.18) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
       <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto', padding: '108px var(--gutter)', position: 'relative', textAlign: 'center' }}>
@@ -56,12 +57,12 @@ export default function FinalCTA() {
             <Link to="/contact" style={{
               fontFamily: 'var(--font-mono)', fontSize: '13px', letterSpacing: '0.1em',
               textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '10px',
-              color: 'var(--text)', border: '1px solid rgba(185,172,154,0.4)',
+              color: 'var(--text)', border: '1px solid rgba(168,190,194,0.4)',
               padding: '15px 24px', borderRadius: '2px', textDecoration: 'none',
               transition: 'border-color 0.2s ease, background 0.2s ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(185,172,154,0.08)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(185,172,154,0.4)' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(168,190,194,0.08)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(168,190,194,0.4)' }}
             >
               Schedule Service
             </Link>

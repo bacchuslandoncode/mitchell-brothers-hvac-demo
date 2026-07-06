@@ -10,7 +10,6 @@ const links = [
   { label: 'Why Us',        to: '/why-us'         },
   { label: 'Reviews',       to: '/reviews'        },
   { label: 'Service Area',  to: '/service-area'   },
-  { label: 'Apply',         to: '/apply'          },
   { label: 'Contact',       to: '/contact'        },
 ]
 
@@ -35,19 +34,19 @@ export default function Nav() {
       willChange: 'transform',
       transition: 'background 0.4s ease, border-color 0.4s ease',
       background: scrolled
-        ? 'rgba(27,24,21,0.97)'
-        : 'linear-gradient(to bottom, rgba(27,24,21,0.72) 0%, transparent 100%)',
+        ? 'rgba(32,42,46,0.97)'
+        : 'linear-gradient(to bottom, rgba(32,42,46,0.72) 0%, transparent 100%)',
       backdropFilter: scrolled ? 'blur(10px) saturate(1.2)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(10px) saturate(1.2)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(232,182,127,0.16)' : '1px solid transparent',
+      borderBottom: scrolled ? '1px solid rgba(94,215,229,0.16)' : '1px solid transparent',
       /* Nav always sits over a dark hero — force dark-section tokens */
-      '--text':         '#F3EDE2',
-      '--text-muted':   '#B9AC9A',
-      '--text-dim':     '#8C8171',
-      '--accent':       '#D8985C',
-      '--accent-light': '#E8B67F',
-      '--accent-dim':   '#C4813F',
-      '--bg':           '#1B1815',
+      '--text':         '#F8F5EF',
+      '--text-muted':   '#A8BEC2',
+      '--text-dim':     '#71898D',
+      '--accent':       '#5ED7E5',
+      '--accent-light': '#EAFBFF',
+      '--accent-dim':   '#008C95',
+      '--bg':           '#202A2E',
     }}>
       <div style={{
         maxWidth: 'var(--max-w)',
@@ -78,7 +77,7 @@ export default function Nav() {
               fontSize: '9px',
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
-              color: 'rgba(185,172,154,0.85)',
+              color: 'rgba(168,190,194,0.85)',
               lineHeight: 1,
             }}>Tempe, AZ</span>
           </span>
@@ -89,7 +88,7 @@ export default function Nav() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '22px',
+          gap: '30px',
           height: '84px',
           minWidth: 0,
           flexShrink: 1,
@@ -146,7 +145,7 @@ export default function Nav() {
         maxHeight: menuOpen ? '480px' : '0',
         overflow: 'hidden',
         transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        background: 'rgba(27,24,21,0.98)',
+        background: 'rgba(32,42,46,0.98)',
         backdropFilter: 'blur(16px)',
         borderTop: menuOpen ? '1px solid var(--border)' : '1px solid transparent',
       }}>
@@ -237,12 +236,12 @@ export function BrandMark({ size = 40 }) {
     <span className="nav-logo-chip" aria-hidden="true" style={{
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       width: `${size}px`, height: `${size}px`, borderRadius: '7px', flexShrink: 0,
-      background: 'linear-gradient(135deg, #7E4E22, #A8672E)',
+      background: 'linear-gradient(135deg, #202A2E, #008C95)',
       boxShadow: '0 2px 10px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.14)',
     }}>
       <span style={{
         fontFamily: 'var(--font-display)', fontWeight: 600,
-        fontSize: `${Math.round(size * 0.42)}px`, color: '#F3EDE2', letterSpacing: '-0.02em',
+        fontSize: `${Math.round(size * 0.42)}px`, color: '#F8F5EF', letterSpacing: '-0.02em',
       }}>MB</span>
     </span>
   )
@@ -267,16 +266,16 @@ export function CallNowButton({ compact = false, full = false, onClick }) {
         gap: '8px',
         whiteSpace: 'nowrap',
         textDecoration: 'none',
-        color: '#211D18',
+        color: 'var(--dark)',
         background: hov
-          ? 'linear-gradient(135deg, var(--accent-2), #E8B67F)'
+          ? 'linear-gradient(135deg, var(--accent-2), #EAFBFF)'
           : 'linear-gradient(135deg, var(--primary), var(--accent-2))',
         border: '1px solid transparent',
         padding: compact ? '10px 16px' : '15px 24px',
         borderRadius: '2px',
         transition: 'all 0.2s ease',
         width: full ? '100%' : 'auto',
-        boxShadow: hov ? '0 6px 22px rgba(168,103,46,0.32)' : '0 2px 10px rgba(168,103,46,0.14)',
+        boxShadow: hov ? '0 6px 22px rgba(0,140,149,0.32)' : '0 2px 10px rgba(0,140,149,0.14)',
       }}
     >
       <PhoneIcon />

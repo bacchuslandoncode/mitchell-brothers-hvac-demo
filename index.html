@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
-    <title>Mitchell Brothers Heating And Cooling: 24-Hour HVAC Service in Tempe, AZ (Demo Concept)</title>
-    <meta name="description" content="A demo concept site for Mitchell Brothers Heating And Cooling. A modern, conversion-focused site for 24-hour AC repair, heating repair, and system installation in Tempe and the East Valley." />
+    <title>Mitchell Brothers Heating And Cooling | 24-Hour HVAC Service in Tempe, AZ</title>
+    <meta name="description" content="Mitchell Brothers Heating And Cooling provides 24-hour AC repair, AC maintenance, heating repair, and system installation in Tempe and the East Valley." />
     <meta name="robots" content="noindex, nofollow" />
 
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
     <meta property="og:site_name"   content="Mitchell Brothers Heating And Cooling" />
-    <meta property="og:title"       content="Mitchell Brothers Heating And Cooling: 24-Hour HVAC Service in Tempe, AZ" />
-    <meta property="og:description" content="Demo concept for a Tempe-based HVAC contractor. Covers AC repair, AC maintenance, heating repair, system installation, and emergency service." />
+    <meta property="og:title"       content="Mitchell Brothers Heating And Cooling | 24-Hour HVAC Service in Tempe, AZ" />
+    <meta property="og:description" content="24-hour HVAC contractor based in Tempe, AZ. AC repair, AC maintenance, heating repair, system installation, and emergency service." />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="Mitchell Brothers Heating And Cooling: 24-Hour HVAC Service in Tempe, AZ" />
-    <meta name="twitter:description" content="Demo concept for a Tempe-based HVAC contractor. Covers AC repair, AC maintenance, heating repair, system installation, and emergency service." />
+    <meta name="twitter:title"       content="Mitchell Brothers Heating And Cooling | 24-Hour HVAC Service in Tempe, AZ" />
+    <meta name="twitter:description" content="24-hour HVAC contractor based in Tempe, AZ. AC repair, AC maintenance, heating repair, system installation, and emergency service." />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +34,22 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Static mirror of the React-rendered "request-service" form (src/sections/RequestService.jsx).
+      Netlify's build-time bot only detects forms present in the static HTML output, not ones
+      rendered client-side by React — this hidden copy exists solely so Netlify registers the
+      form and its fields. It is never shown to visitors.
+    -->
+    <form name="request-service" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <select name="service"><option>AC Repair</option><option>AC Maintenance</option><option>Heating Repair</option><option>System Installation</option><option>Emergency Service</option><option>Other</option></select>
+      <select name="preferredTime"><option>ASAP / Emergency</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Flexible</option></select>
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

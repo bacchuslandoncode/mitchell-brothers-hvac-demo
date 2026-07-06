@@ -82,7 +82,7 @@ export default function ServiceArea() {
             fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-dim)',
             marginTop: '28px', lineHeight: 1.6,
           }}>
-            Nearby-area copy shown for demo purposes — confirm exact service radius with the business before launch.
+            Nearby-area copy shown for demo purposes. Confirm exact service radius with the business before launch.
           </p>
         </Reveal>
       </div>

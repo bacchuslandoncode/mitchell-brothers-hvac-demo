@@ -77,7 +77,7 @@ function RatingBadge() {
       }}>{reviewSummary.rating.toFixed(1)}</span>
       <span style={{
         fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-dim)', whiteSpace: 'nowrap',
-      }}>from {reviewSummary.count} reviews</span>
+      }}>Customer Review Highlights</span>
     </div>
   )
 }

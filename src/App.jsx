@@ -7,7 +7,6 @@ import ServicesPage from './pages/ServicesPage'
 import WhyMitchellBrothersPage from './pages/WhyMitchellBrothersPage'
 import ReviewsPage from './pages/ReviewsPage'
 import ServiceAreaPage from './pages/ServiceAreaPage'
-import ApplyPage from './pages/ApplyPage'
 import ContactPage from './pages/ContactPage'
 
 export default function App() {
@@ -20,7 +19,6 @@ export default function App() {
           <Route path="/why-us" element={<WhyMitchellBrothersPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/service-area" element={<ServiceAreaPage />} />
-          <Route path="/apply" element={<ApplyPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>

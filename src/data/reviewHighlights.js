@@ -1,7 +1,8 @@
 /* Themes summarized from the business's public review listing, not quoted
-   testimonials. Rating/count reflect the listing at time of writing and
-   should be reverified before launch. */
-export const reviewSummary = { rating: 5.0, count: 3 }
+   testimonials. Rating reflects the listing at time of writing and should
+   be reverified before launch. No specific review count is claimed since
+   it isn't independently confirmed. */
+export const reviewSummary = { rating: 5.0 }
 
 export const reviewHighlights = [
   {

@@ -20,7 +20,7 @@ export default function Footer() {
       {/* Diagonal grid texture */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.025,
-        backgroundImage: 'repeating-linear-gradient(45deg, rgba(216,152,92,1) 0px, rgba(216,152,92,1) 1px, transparent 0px, transparent 50%)',
+        backgroundImage: 'repeating-linear-gradient(45deg, rgba(94,215,229,1) 0px, rgba(94,215,229,1) 1px, transparent 0px, transparent 50%)',
         backgroundSize: '28px 28px',
       }} />
 

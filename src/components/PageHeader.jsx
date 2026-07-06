@@ -5,7 +5,7 @@ export default function PageHeader({ eyebrow, title, subtitle }) {
     <section className="section-dark" style={{ position: 'relative', background: 'var(--bg)', overflow: 'hidden' }}>
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 60% 70% at 50% 0%, rgba(216,152,92,0.16) 0%, transparent 60%)',
+        background: 'radial-gradient(ellipse 60% 70% at 50% 0%, rgba(94,215,229,0.16) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
       <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto', padding: '156px var(--gutter) 64px', position: 'relative' }}>

@@ -119,7 +119,7 @@ function ScenarioCard({ scenario }) {
       {/* Frosted caption panel */}
       <div style={{
         position: 'absolute', left: 0, right: 0, bottom: 0,
-        background: 'rgba(27,24,21,0.6)',
+        background: 'rgba(32,42,46,0.6)',
         backdropFilter: 'blur(10px) saturate(1.2)',
         WebkitBackdropFilter: 'blur(10px) saturate(1.2)',
         borderTop: '1px solid rgba(255,255,255,0.14)',

@@ -3,6 +3,8 @@ import PageHeader from '../components/PageHeader'
 import Reveal from '../components/Reveal'
 import { CallNowButton, MITCHELL_PHONE, MITCHELL_PHONE_TEL, MITCHELL_ADDRESS } from '../components/Nav'
 import { hoursRows } from '../data/hours'
+import RequestService from '../sections/RequestService'
+import FinalCTA from '../sections/FinalCTA'
 
 export default function ContactPage() {
   useEffect(() => {
@@ -14,7 +16,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Get in touch with Mitchell Brothers"
-        subtitle="Call any time for service — Mitchell Brothers takes calls 24 hours a day."
+        subtitle="Call any time for service. Mitchell Brothers takes calls 24 hours a day."
       />
 
       <section style={{ position: 'relative', background: 'var(--bg)' }}>
@@ -66,6 +68,12 @@ export default function ContactPage() {
               </div>
             </div>
           </Reveal>
+
+          <Reveal delay={0.1}>
+            <div style={{ marginTop: '56px', maxWidth: '640px' }}>
+              <RequestService />
+            </div>
+          </Reveal>
         </div>
 
         <style>{`
@@ -74,6 +82,7 @@ export default function ContactPage() {
           }
         `}</style>
       </section>
+      <FinalCTA />
     </>
   )
 }

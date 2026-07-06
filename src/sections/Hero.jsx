@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CallNowButton } from '../components/Nav'
-import heroPhoto from '../assets/photos/ac-technician.jpg'
+import heroPhoto from '../assets/photos/modern-room-wall-ac.webp'
 
 const badges = [
   { label: 'Open 24 Hours', icon: 'clock' },
@@ -26,16 +26,16 @@ export default function Hero() {
       alignItems: 'center',
       background: 'var(--bg)',
     }}>
-      {/* Fine brass hairline grid — architectural/trade motif, not a photo backdrop */}
+      {/* Fine cool-cyan hairline grid — architectural/trade motif, not a photo backdrop */}
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, opacity: 0.05, pointerEvents: 'none',
-        backgroundImage: 'linear-gradient(rgba(216,152,92,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(216,152,92,0.6) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(94,215,229,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(94,215,229,0.6) 1px, transparent 1px)',
         backgroundSize: '64px 64px',
       }} />
-      {/* Warm radial glow, upper-left — grounded rather than atmospheric */}
+      {/* Icy radial glow, upper-left — cooling relief against the graphite */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 60% 55% at 12% 0%, rgba(216,152,92,0.16) 0%, transparent 55%)',
+        background: 'radial-gradient(ellipse 60% 55% at 12% 0%, rgba(94,215,229,0.16) 0%, transparent 55%)',
         pointerEvents: 'none',
       }} />
 
@@ -52,10 +52,10 @@ export default function Hero() {
           <div>
             {/* Eyebrow */}
             <motion.div {...rise(0.05)} style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '22px' }}>
-              <div style={{ width: '32px', height: '1px', background: 'var(--urgency-light)', flexShrink: 0 }} />
+              <div style={{ width: '32px', height: '1px', background: 'var(--accent-light)', flexShrink: 0 }} />
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.24em',
-                textTransform: 'uppercase', color: 'var(--urgency-light)',
+                textTransform: 'uppercase', color: 'var(--accent-light)',
               }}>Tempe, AZ · Open 24 Hours</span>
             </motion.div>
 
@@ -66,7 +66,7 @@ export default function Hero() {
               letterSpacing: '-0.01em', color: 'var(--text)',
               marginBottom: '24px',
             }}>
-              Heating and cooling done right, <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--urgency-light)' }}>day or night.</em>
+              Heating and cooling done right, <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--accent-light)' }}>day or night.</em>
             </motion.h1>
 
             {/* Subtext */}
@@ -93,7 +93,7 @@ export default function Hero() {
                 <div key={b.label} style={{
                   display: 'flex', alignItems: 'center', gap: '8px',
                   padding: '10px 16px', borderRadius: '3px',
-                  border: '1px solid rgba(185,172,154,0.28)',
+                  border: '1px solid rgba(168,190,194,0.28)',
                 }}>
                   <BadgeIcon kind={b.icon} />
                   <span style={{
@@ -116,34 +116,36 @@ export default function Hero() {
               aspectRatio: '4 / 5',
               borderRadius: '8px',
               overflow: 'hidden',
-              border: '1px solid rgba(216,152,92,0.3)',
+              border: '1px solid rgba(94,215,229,0.3)',
               boxShadow: '0 24px 60px rgba(0,0,0,0.35)',
             }}
           >
             <img
               src={heroPhoto}
-              alt="Mitchell Brothers technicians reviewing HVAC system plans on-site"
+              alt="Newly installed modern wall-mounted mini-split AC unit"
               fetchPriority="high"
               decoding="async"
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
             />
             <div style={{
               position: 'absolute', inset: 0,
-              background: 'linear-gradient(180deg, rgba(27,24,21,0) 55%, rgba(27,24,21,0.75) 100%)',
+              background: 'linear-gradient(180deg, rgba(32,42,46,0) 55%, rgba(32,42,46,0.75) 100%)',
               pointerEvents: 'none',
             }} />
-            {/* Emergency-service ribbon */}
+            {/* Emergency-service ribbon — stands out through border weight, a bold
+                label, and a pulsing dot rather than a separate "hot" color */}
             <div style={{
               position: 'absolute', top: '18px', left: '18px',
               display: 'flex', alignItems: 'center', gap: '8px',
-              background: 'rgba(27,24,21,0.82)', backdropFilter: 'blur(6px)',
-              border: '1px solid rgba(216,152,92,0.4)', borderRadius: '999px',
+              background: 'rgba(32,42,46,0.85)', backdropFilter: 'blur(6px)',
+              border: '1.5px solid var(--urgency-light)', borderRadius: '999px',
               padding: '8px 14px',
+              boxShadow: '0 0 0 3px rgba(94,215,229,0.16)',
             }}>
-              <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--urgency-light)', flexShrink: 0 }} />
+              <span className="ribbon-dot" style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--urgency-light)', flexShrink: 0 }} />
               <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em',
-                textTransform: 'uppercase', color: '#F3EDE2',
+                fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em',
+                textTransform: 'uppercase', color: '#F8F5EF',
               }}>24-Hour Emergency Service</span>
             </div>
           </motion.div>
@@ -155,6 +157,14 @@ export default function Hero() {
           .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
           .hero-image-col { aspect-ratio: 16 / 10 !important; order: -1; }
         }
+        .ribbon-dot { animation: ribbon-pulse 2s ease-in-out infinite; }
+        @keyframes ribbon-pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50%      { opacity: 0.55; transform: scale(0.85); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ribbon-dot { animation: none; }
+        }
       `}</style>
     </section>
   )
@@ -165,12 +175,12 @@ function ScheduleButton() {
     <Link to="/contact" style={{
       fontFamily: 'var(--font-mono)', fontSize: '13px', letterSpacing: '0.1em',
       textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '10px',
-      color: 'var(--text)', border: '1px solid rgba(185,172,154,0.4)',
+      color: 'var(--text)', border: '1px solid rgba(168,190,194,0.4)',
       padding: '15px 24px', borderRadius: '2px', textDecoration: 'none',
       transition: 'border-color 0.2s ease, background 0.2s ease',
     }}
-    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(185,172,154,0.08)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
-    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(185,172,154,0.4)' }}
+    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(168,190,194,0.08)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(168,190,194,0.4)' }}
     >
       Schedule Service
     </Link>

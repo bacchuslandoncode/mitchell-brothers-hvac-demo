@@ -3,7 +3,7 @@ import Reveal from '../components/Reveal'
 import { staggerContainer, staggerItem } from '../components/motionVariants'
 import { services } from '../data/services'
 import repairPhoto from '../assets/photos/hero-hvac-technician.webp'
-import installPhoto from '../assets/photos/modern-room-wall-ac.webp'
+import installPhoto from '../assets/photos/ac-technician.jpg'
 import maintenancePhoto from '../assets/photos/ac-remote.webp'
 import emergencyPhoto from '../assets/photos/emergency-ac-service.webp'
 import heatingPhoto from '../assets/photos/heater-unit.webp'
@@ -13,7 +13,7 @@ const photoMap = {
   'ac-repair':            { src: repairPhoto,     alt: 'HVAC technician repairing a residential AC unit' },
   'ac-maintenance':       { src: maintenancePhoto, alt: 'Adjusting a wall-mounted AC unit control during a maintenance visit' },
   'heating-repair':       { src: heatingPhoto,     alt: 'Residential wall heater warmed by afternoon light' },
-  'system-installation':  { src: installPhoto,     alt: 'Newly installed modern wall-mounted mini-split AC unit' },
+  'system-installation':  { src: installPhoto,     alt: 'Mitchell Brothers technicians reviewing HVAC system plans on-site' },
   'emergency-service':    { src: emergencyPhoto,   alt: 'Emergency AC service call in progress' },
 }
 
@@ -46,8 +46,8 @@ export default function Services() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            display: 'flex',
+            flexWrap: 'wrap',
             gap: '1px',
             background: 'var(--border)',
             border: '1px solid var(--border)',
@@ -59,11 +59,12 @@ export default function Services() {
       </div>
 
       <style>{`
+        .services-grid > * { flex: 1 1 calc(33.333% - 1px); }
         @media (max-width: 900px) {
-          .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .services-grid > * { flex-basis: calc(50% - 1px) !important; }
         }
         @media (max-width: 560px) {
-          .services-grid { grid-template-columns: 1fr !important; }
+          .services-grid > * { flex-basis: 100% !important; }
         }
       `}</style>
     </section>
@@ -96,12 +97,12 @@ function ServiceCard({ service, photo }) {
           />
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(180deg, rgba(27,24,21,0.18) 0%, rgba(50,36,20,0.55) 50%, rgba(27,24,21,0.92) 100%)',
+            background: 'linear-gradient(180deg, rgba(32,42,46,0.18) 0%, rgba(52,66,71,0.55) 50%, rgba(32,42,46,0.92) 100%)',
           }} />
-          {/* Frosted edge — subtle brass hairline for a grounded, premium finish */}
+          {/* Frosted edge — subtle icy hairline for a cool, premium finish */}
           <div style={{
             position: 'absolute', inset: 0,
-            boxShadow: 'inset 0 0 0 1px rgba(232,182,127,0.14)',
+            boxShadow: 'inset 0 0 0 1px rgba(94,215,229,0.14)',
             pointerEvents: 'none',
           }} />
         </>

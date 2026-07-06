@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import DesertHeat from '../sections/DesertHeat'
-import WhyMitchellBrothers from '../sections/WhyMitchellBrothers'
-import Process from '../sections/Process'
-import FinalCTA from '../sections/FinalCTA'
+import PageHeader from '../components/PageHeader'
+import WhatCustomersCareAbout from '../sections/WhatCustomersCareAbout'
+import ServiceCallFeel from '../sections/ServiceCallFeel'
+import TempeComfort from '../sections/TempeComfort'
 
 export default function WhyMitchellBrothersPage() {
   useEffect(() => {
@@ -11,10 +11,14 @@ export default function WhyMitchellBrothersPage() {
 
   return (
     <>
-      <DesertHeat />
-      <WhyMitchellBrothers />
-      <Process />
-      <FinalCTA />
+      <PageHeader
+        eyebrow="Why Mitchell Brothers"
+        title="Built for urgent HVAC calls in Tempe."
+        subtitle="Mitchell Brothers Heating And Cooling is reachable 24 hours a day for heating and cooling help, from a quick question to an emergency repair."
+      />
+      <WhatCustomersCareAbout />
+      <ServiceCallFeel />
+      <TempeComfort />
     </>
   )
 }

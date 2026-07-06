@@ -29,18 +29,8 @@ export default function MaintenanceCTA() {
 
           <div style={{
             marginTop: '40px', paddingTop: '28px', borderTop: '1px solid var(--border)',
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px',
+            display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'wrap', gap: '16px',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{
-                fontFamily: 'var(--font-body)', fontSize: '14.5px', color: 'var(--text-dim)', fontStyle: 'italic',
-              }}>Financing options</span>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.1em',
-                textTransform: 'uppercase', color: 'var(--urgency-dim)',
-                border: '1px solid var(--urgency-dim)', borderRadius: '2px', padding: '2px 6px',
-              }}>Pending verification</span>
-            </div>
             <Link to="/contact" style={{
               fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '0.1em',
               textTransform: 'uppercase', color: 'var(--accent-dim)', textDecoration: 'none',

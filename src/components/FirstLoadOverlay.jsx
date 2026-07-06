@@ -33,7 +33,7 @@ export default function FirstLoadOverlay() {
         position: 'fixed',
         inset: 0,
         zIndex: 10000,
-        background: '#1B1815',
+        background: '#202A2E',
         pointerEvents: 'none',
         opacity: phase === 'fading' ? 0 : 1,
         transition: phase === 'fading' ? 'opacity 0.78s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
